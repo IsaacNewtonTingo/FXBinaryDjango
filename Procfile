@@ -1,1 +1,1 @@
-web: gunicorn FxBinaryProject.wsgi
+web: gunicorn FXBinaryProject.wsgi
