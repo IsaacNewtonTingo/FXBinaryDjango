@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://kit.fontawesome.com/0a5c0d1ef5.js" crossorigin="anonymous"></script>
+
+    <title>Fx Binary || Home page</title>
+
+  </head>
+
+
+
+  <body>
+
+    <header>
+      {% comment %} User authenticated--------------------------------------------------- {% endcomment %}
+
+      {% if user.is_authenticated %}
+     
+
+      <div class="headerDivMain" >
+
+            <div class="logoContainer">
+                <a class="logo"><img src= {% static 'assets/logo.png' %} alt="logo"></a>
+                
+            </div>
+
+
+            <div class="menuItems">
+              <div>
+                <nav>
+                    <ul class="nav">
+                        <li class="current"><a href="/">Home</a></li>
+                        <li ><a href="/terms">Terms</a></li>
+                        <li><a href="/getStarted">Get started</a></li>
+                        <li><a href="/deposit">Deposit</a></li>
+                        <li><a href="withdraw">Withdraw</a></li>              
+                    </ul>
+                </nav>
+              </div>
+
+              <div>
+                <button id="headerButtons" type="submit"><a href="/account">My profile</a></button>
+                <button id="headerButtons" type="submit"><a href="/signout">Sign out</a></button>
+              </div>
+              
+            </div>
+
+
+      </div>
+      
+      
+
+
+      {% comment %} User not authenticated----------------------------------------------- {% endcomment %}
+
+      {% else %}
+
+      <div class="notButtons" >
+       
+          <button id="headerButtons" type="submit"><a href="/signup">SignUp</a></button>
+          <button id="headerButtons" type="submit"><a href="/signin">SignIn</a></button>
+     
+      </div>
+
+      {% endif %}
+
+    </header>
+
+    {% comment %} Some message {% endcomment %}
+
+    {% comment %} {% for message in messages %}
+    <div
+      class="alert alert-{{ message.tags }} alert-dismissible fade show"
+      role="alert"
+    >
+      <strong>Message:</strong> {{ message }}
+
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %} {% endcomment %}
+
+ 
+
+
+
+
+
+
+
+
+    {% comment %} User authenticated--------------------------------------------------------- {% endcomment %}
+
+    
+   {% if user.is_authenticated %}
+
+    <!-- Autoscroll links-------------------------------------------------------------- -->
+
+    <section class="autoScroll" data-image-width="1725" data-image-height="1294">
+      <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+          {
+          "symbols" [
+            {
+              "proName": "FOREXCOM:SPXUSD",
+              "title": "S&P 500"
+            },
+            {
+              "proName": "FOREXCOM:NSXUSD",
+              "title": "US 100"
+            },
+            {
+              "proName": "FX_IDC:EURUSD",
+              "title": "EUR/USD"
+            },
+            {
+              "proName": "BITSTAMP:BTCUSD",
+              "title": "Bitcoin"
+            },
+            {
+              "proName": "BITSTAMP:ETHUSD",
+              "title": "Ethereum"
+            }
+          ],
+          "showSymbolLogo"; true,
+          "colorTheme"; "dark",
+          "isTransparent"; false,
+          "displayMode"; "adaptive",
+          "locale"; "en"
+        }
+          </script>
+        </div>
+  </section>
+
+
+  <!-- Get started img button text ------------------------------------------------------ -->
+
+  <section class="getStartedImageContainer">
+    {% csrf_token %}
+      <div class="bigTextsSmallAndButton">
+          <div class="bigTextsContainer">
+              <h1>BUY, SELL,</h1>
+              <h1>TRADE, INVEST</h1>
+              <h1>HAS BEEN SIMPLIFIED</h1>
+              <p>Put your investing ideas into action with a full range of investments.</br>
+                  Enjoy real benefits and rewards on Forex Binary</p>
+                  <button onclick="goToGetStarted()">Get started</button>
+          </div>
+      </div>
+  </section>
+
+
+  <!-- About us----------------------------------------------------------------------------------- -->
+
+  <section class="aboutUs">
+    {% csrf_token %}
+      <h1 class="customH1">About Forex Binary  </h1>
+      <p>Forex Binary is the next-gen Trading solutions company that
+          has financial experts at the core who are focused on 
+          creating sustainable and profitable Bitcoin and Forex
+          investment opportunities.  Our knowledge team and market
+          analyst, to our financial experts and support staff,
+          we have countless years of experience in the financial
+          market and emerging as a global leader in the market
+          with a Forex and Cryptocurrency trading platform.
+          Company number 1154234 based in Wellington,
+          New Zealand. Our Corporate Headquarters is
+          ocated here: 50 Athol Street, , Wellington,
+          New Zealand, WLG 4PX. Forex Binary offers multiple
+          possibilities in the Financial sector with key focus
+          on Forex and Crypto market. Our company is constantly
+          evolving, as it improves its marketing components and
+          creates new investment proposals. All this makes Forex
+          Binary an industry leader and to be able to provide a 
+          large set of financial expertise and also adapt to the
+          constantly changing market conditions.
+      </p>
+  </section>
+
+  <section class="sifaContainer">
+    {% csrf_token %}
+      <div class="parentDiv">
+
+          <div class="divsContainer">
+              <img src= {% static 'assets/innovate.png' %}  alt="innovate">
+              <p>STRATEGY</p>
+              <P class="description">Our custom made Arbitrage trading script does 
+               all the hard work for you. Our team of professional 
+               technical traders and analysts execute open market operations 
+               and profit oriented decision on a daily basis and make profits 
+               from the volatility.
+              </P>
+          </div>
+
+          <div class="divsContainer">
+              <img src={% static 'assets/lock.png' %} alt="">
+              <p>QUICK WITHDRAWALS</p>
+              <P class="description">Withdrawal(ROI) will be automatically sent to your
+               Bitcoin Wallet at maturity of your Investment Plan.
+               ** PRINCIPAL DEPOSIT INCLUDED IN WITHDRAWAL **</P>
+          </div>
+
+          <div class="divsContainer">
+              <img src={% static 'assets/images1.png' %} alt="">
+              <p>BLOCKCHAIN TECHNOLOGY</p>
+              <P class="description">Forex Binary is built on a secure, scalable,  
+              and reliable blockchain. By applying blockchain technology,
+              Forex Binary is the answer to solving the lack of financing 
+              for the new digital economy and Ensuring Financial Freedom</P>
+          </div>
+      </div>
+  </section>
+
+
+
+  <!-- Our services------------------------------------------------------------------------------------- -->
+
+  <section class="ourServicesSection">
+      <div class="ourServicesParentDiv">
+
+          <div class="ourServicesTextContainer">
+              <h1 class="customH1">Our services</h1>
+              <!-- <p>Why you should choose us</p> -->
+          </div>
+
+          <div class="firstImageDiv">
+              <img src={% static 'assets/trading1.jpg' %} alt="">
+              <div>
+                  <div>
+                      <h1>GET STARTED IN MINUTES</h1>
+                      <p>Our systems are extremely sophisticated and 
+                      user friendly which helps all our users to 
+                      get started with just a few clicks.
+                      </p>
+                  </div>
+
+                  <div>
+                      <h1>PROFESSIONAL CONNECTIVITY</h1>
+                      <p>Partnering with Market Synergy, corporate accounts
+                          and professional traders can take advantage of
+                          the fastest trading speeds through institutional-grade
+                          connectivity.
+                      </p>
+                  </div>
+              </div>
+          </div>
+
+
+          
+          <div class="secondImageDiv">
+              <img src={% static 'assets/trading2.jpg' %} alt="">
+              <div>
+                  <div>
+                      <h1>SECURITY OF FUNDS</h1>
+                      <p>Here at Forex Binary we understand that successful 
+                          traders have to give their full attention to their
+                          trading rather than worrying about the safety of 
+                          their funds. We have therefore taken additional 
+                          measures to ensure adequate levels of safety for
+                          your funds.
+                      </p>
+                  </div>
+
+                  <div>
+                      <h1>SATISFIED CUSTOMERS</h1>
+                      <p>Keeping our customers satisfied with our products
+                          and services is non-negotiable for us. In a recent
+                          survey, 99% of our customers are more than happy 
+                          with the experience at forex binary. We could not
+                          be more happier.
+                      </p>
+                  </div>
+              </div>
+          </div>
+
+
+          <div class="firstImageDiv">
+              <img src={% static 'assets/TRADING3.jpg' %} alt="">
+              <div>
+                  <div>
+                      <h1>FINANCIAL ADVISING</h1>
+                      <p>We are the financial experts and thus we impart 
+                          financial advice and guidance to anyone who is 
+                          in need. Our services include Investment Management,
+                          Online payment, Digital Loans and many more.
+                      </p>
+                  </div>
+
+                  <div>
+                      <h1>TRANSPARENCY IN OUR POLICY</h1>
+                      <p>We’re fans of the phrase, “what you see is what
+                           you get.” No hidden fees, no hidden meanings.
+                      </p>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </section>
+
+
+
+  <!-- Investment plan--------------------------------------------------------- -->
+
+  <section class="investmentContainer">
+
+      <h1 class="investmentTit" >Our Investment Plans</h1>
+          <p class="investmentDesc">We are a responsible firm that enhances your investments
+              by useing modern technology ans investments by using
+              modern technology and investments by using modern
+              technology and continuous monitoring of markets
+              by our experts.
+          </p>
+          <p class="investmentPlanText">Choose an investment plan :</p>
+  
+          <div class="subscriptionsParent">
+  
+              <div class="sub1">
+  
+                  <div class="">
+                      <i class="fas fa-alarm-clock"></i>
+                      <h1 class="planHeadText">2 Hour plan</h1>
+                  </div>
+                  
+                  <hr class="line" size="0.5" width="10%" color="gray">  
+                  <div class="">
+                      
+                      <div class="checkIconAndText">
+                          <i class="fas fa-check-circle"></i>
+                          <p>Invest $100 Earn $150 </p>
+                      </div>
+  
+                      <div class="checkIconAndText">
+                          <i class="fas fa-check-circle"></i>
+                          <p>Invest $250 Earn $375</p>
+                      </div>
+                      
+                      <div class="checkIconAndText">
+                          <i class="fas fa-check-circle"></i>
+                          <p>Invest $300 Earn $450</p>
+                      </div>
+                      
+                      <div class="checkIconAndText">
+                          <i class="fas fa-check-circle"></i>
+                          <p>Invest $400 Earn $600</p>
+                      </div>
+                      
+                      <div class="checkIconAndText">
+                          <i class="fas fa-check-circle"></i>
+                          <p>Invest $500 Earn $750</p>
+                      </div>
+
+                      <div class="checkIconAndText">
+                          <i class="fas fa-check-circle"></i>
+                          <p>Invest $1000 Earn $1500</p>
+                      </div>
+
+                      <div class="checkIconAndText">
+                          <i class="fas fa-check-circle"></i>
+                          <p>Invest $2000 Earn $3000</p>
+                      </div>
+                      
+                  </div>
+  
+                 
+  
+                  <button id="goToPaymentButton" onclick="goToDeposit()"  class="investButton">Invest now</button>
+              </div>
+  
+  
+              
+  
+  
+             
+  
+  
+              <div class="sub1">
+  
+                  <div class="">
+                      <i class="fas fa-alarm-clock"></i>
+                      <h1 class="planHeadText">24 Hour plan</h1>
+                  </div>
+                  
+                  <hr class="line" size="0.5" width="10%" color="gray">  
+                  <div class="">
+                      
+                      <div class="checkIconAndText">
+                          <i class="fas fa-check-circle"></i>
+                          <p>Invest $500 Earn $1500 (Min) </p>
+                      </div>
+  
+                      <div class="checkIconAndText">
+                          <i class="fas fa-check-circle"></i>
+                          <p>Invest $600 Earn $1800</p>
+                      </div>
+                      
+                      <div class="checkIconAndText">
+                          <i class="fas fa-check-circle"></i>
+                          <p>Invest $700 Earn $2100</p>
+                      </div>
+                      
+                      <div class="checkIconAndText">
+                          <i class="fas fa-check-circle"></i>
+                          <p>Invest $800 Earn $2400</p>
+                      </div>
+                      
+                      <div class="checkIconAndText">
+                          <i class="fas fa-check-circle"></i>
+                          <p>Invest $900 Earn $2700</p>
+                      </div>
+
+                      <div class="checkIconAndText">
+                          <i class="fas fa-check-circle"></i>
+                          <p>Invest $1000 Earn $3000</p>
+                      </div>
+
+                      <div class="checkIconAndText">
+                          <i class="fas fa-check-circle"></i>
+                          <p>Invest $2000 Earn $6000</p>
+                      </div>
+
+                      <div class="checkIconAndText">
+                          <i class="fas fa-check-circle"></i>
+                          <p>Invest $10000 Earn $16000</p>
+                      </div>
+
+                      <div class="checkIconAndText">
+                          <i class="fas fa-check-circle"></i>
+                          <p>Invest $20000 Earn $33000</p>
+                      </div>
+                      
+                  </div>
+  
+                
+  
+                  <button id="goToPaymentButton" onclick="goToDeposit()"  class="investButton">Invest now</button>
+              </div>
+          </div>
+      </section>
+  
+      <script>
+          function goToDeposit() {
+          window.location = "/deposit";
+              }
+
+            function goToGetStarted(){
+                window.location="/getStarted"
+            }
+
+      </script>
+  
+
+
+
+     {% comment %} footer------------------------------------------------ {% endcomment %}
+
+
+
+  <footer>
+      
+      <div class="parentDivFooter">
+          <div >
+              <h1 class="footerHeading">Contact us</h1>
+              <ul>
+                  <li>Call us: +44745097856</li>
+                  <br>
+                  <li>Text us: +44745097856</li>
+                  <br>
+                  <li>WhatsApp: +44745097856</li>
+                  <br>
+                  <li>Email us: info@forexbinary.co.uk</li>
+              </ul>
+          </div>
+
+          <div >
+              <h1 class="footerHeading">Special links</h1>
+              <ul>
+                <a href="/"><li>Home</li></a>
+                <br>
+                <a href="/getStarted"><li>Get started</li></a>
+                <br>
+                <a href="/deposit"><li>Deposit</li></a>
+                <br>
+                <a href="/signin"><li>Login</li></a>
+                <br>
+                <a href="/signup"><li>Signup</li></a>
+              </ul>
+          </div>
+      </div>     
+      <p class="copyright">Copyright® 2021 Forex Binary| Powered by Forex Binary</p>
+      
+ </footer>
+
+ {% else %}
+ <!-- Autoscroll links-------------------------------------------------------------- -->
+
+ <section class="autoScroll" data-image-width="1725" data-image-height="1294">
+  <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      {
+      "symbols" [
+        {
+          "proName": "FOREXCOM:SPXUSD",
+          "title": "S&P 500"
+        },
+        {
+          "proName": "FOREXCOM:NSXUSD",
+          "title": "US 100"
+        },
+        {
+          "proName": "FX_IDC:EURUSD",
+          "title": "EUR/USD"
+        },
+        {
+          "proName": "BITSTAMP:BTCUSD",
+          "title": "Bitcoin"
+        },
+        {
+          "proName": "BITSTAMP:ETHUSD",
+          "title": "Ethereum"
+        }
+      ],
+      "showSymbolLogo"; true,
+      "colorTheme"; "dark",
+      "isTransparent"; false,
+      "displayMode"; "adaptive",
+      "locale"; "en"
+    }
+      </script>
+    </div>
+</section>
+
+
+<!-- Get started img button text ------------------------------------------------------ -->
+
+<section class="getStartedImageContainer">
+{% csrf_token %}
+  <div class="bigTextsSmallAndButton">
+      <div class="bigTextsContainer">
+          <h1>BUY, SELL,</h1>
+          <h1>TRADE, INVEST</h1>
+          <h1>HAS BEEN SIMPLIFIED</h1>
+          <p>Put your investing ideas into action with a full range of investments.</br>
+              Enjoy real benefits and rewards on Forex Binary</p>
+              <button onclick="goToGetStarted()">Get started</button>
+      </div>
+  </div>
+</section>
+
+
+<!-- About us----------------------------------------------------------------------------------- -->
+
+<section class="aboutUs">
+{% csrf_token %}
+  <h1 class="customH1">About Forex Binary</h1>
+  <p>Forex Binary is the next-gen Trading solutions company that
+      has financial experts at the core who are focused on 
+      creating sustainable and profitable Bitcoin and Forex
+      investment opportunities.  Our knowledge team and market
+      analyst, to our financial experts and support staff,
+      we have countless years of experience in the financial
+      market and emerging as a global leader in the market
+      with a Forex and Cryptocurrency trading platform.
+      Company number 1154234 based in Wellington,
+      New Zealand. Our Corporate Headquarters is
+      ocated here: 50 Athol Street, , Wellington,
+      New Zealand, WLG 4PX. Forex Binary offers multiple
+      possibilities in the Financial sector with key focus
+      on Forex and Crypto market. Our company is constantly
+      evolving, as it improves its marketing components and
+      creates new investment proposals. All this makes Forex
+      Binary an industry leader and to be able to provide a 
+      large set of financial expertise and also adapt to the
+      constantly changing market conditions.
+  </p>
+</section>
+
+<section class="sifaContainer">
+{% csrf_token %}
+  <div class="parentDiv">
+
+      <div class="divsContainer">
+          <img src= {% static 'assets/innovate.png' %}  alt="innovate">
+          <p>STRATEGY</p>
+          <P class="description">Our custom made Arbitrage trading script does 
+           all the hard work for you. Our team of professional 
+           technical traders and analysts execute open market operations 
+           and profit oriented decision on a daily basis and make profits 
+           from the volatility.
+          </P>
+      </div>
+
+      <div class="divsContainer">
+          <img src={% static 'assets/lock.png' %} alt="">
+          <p>QUICK WITHDRAWALS</p>
+          <P class="description">Withdrawal(ROI) will be automatically sent to your
+           Bitcoin Wallet at maturity of your Investment Plan.
+           ** PRINCIPAL DEPOSIT INCLUDED IN WITHDRAWAL **</P>
+      </div>
+
+      <div class="divsContainer">
+          <img src={% static 'assets/images1.png' %} alt="">
+          <p>BLOCKCHAIN TECHNOLOGY</p>
+          <P class="description">Forex Binary is built on a secure, scalable,  
+          and reliable blockchain. By applying blockchain technology,
+          Forex Binary is the answer to solving the lack of financing 
+          for the new digital economy and Ensuring Financial Freedom</P>
+      </div>
+  </div>
+</section>
+
+
+
+<!-- Our services------------------------------------------------------------------------------------- -->
+
+<section class="ourServicesSection">
+  <div class="ourServicesParentDiv">
+
+      <div class="ourServicesTextContainer">
+          <h1 class="customH1">Our services</h1>
+          <!-- <p>Why you should choose us</p> -->
+      </div>
+
+      <div class="firstImageDiv">
+          <img src={% static 'assets/trading1.jpg' %} alt="">
+          <div>
+              <div>
+                  <h1>GET STARTED IN MINUTES</h1>
+                  <p>Our systems are extremely sophisticated and 
+                  user friendly which helps all our users to 
+                  get started with just a few clicks.
+                  </p>
+              </div>
+
+              <div>
+                  <h1>PROFESSIONAL CONNECTIVITY</h1>
+                  <p>Partnering with Market Synergy, corporate accounts
+                      and professional traders can take advantage of
+                      the fastest trading speeds through institutional-grade
+                      connectivity.
+                  </p>
+              </div>
+          </div>
+      </div>
+
+
+      
+      <div class="secondImageDiv">
+          <img src={% static 'assets/trading2.jpg' %} alt="">
+          <div>
+              <div>
+                  <h1>SECURITY OF FUNDS</h1>
+                  <p>Here at Forex Binary we understand that successful 
+                      traders have to give their full attention to their
+                      trading rather than worrying about the safety of 
+                      their funds. We have therefore taken additional 
+                      measures to ensure adequate levels of safety for
+                      your funds.
+                  </p>
+              </div>
+
+              <div>
+                  <h1>SATISFIED CUSTOMERS</h1>
+                  <p>Keeping our customers satisfied with our products
+                      and services is non-negotiable for us. In a recent
+                      survey, 99% of our customers are more than happy 
+                      with the experience at forex binary. We could not
+                      be more happier.
+                  </p>
+              </div>
+          </div>
+      </div>
+
+
+      <div class="firstImageDiv">
+          <img src={% static 'assets/TRADING3.jpg' %} alt="">
+          <div>
+              <div>
+                  <h1>FINANCIAL ADVISING</h1>
+                  <p>We are the financial experts and thus we impart 
+                      financial advice and guidance to anyone who is 
+                      in need. Our services include Investment Management,
+                      Online payment, Digital Loans and many more.
+                  </p>
+              </div>
+
+              <div>
+                  <h1>TRANSPARENCY IN OUR POLICY</h1>
+                  <p>We’re fans of the phrase, “what you see is what
+                       you get.” No hidden fees, no hidden meanings.
+                  </p>
+              </div>
+          </div>
+      </div>
+
+  </div>
+</section>
+
+
+
+<!-- Investment plan--------------------------------------------------------- -->
+
+<section class="investmentContainer">
+
+  <h1 class="investmentTit" >Our Investment Plans</h1>
+      <p class="investmentDesc">We are a responsible firm that enhances your investments
+          by useing modern technology ans investments by using
+          modern technology and investments by using modern
+          technology and continuous monitoring of markets
+          by our experts.
+      </p>
+      <p class="investmentPlanText">Choose an investment plan :</p>
+
+      <div class="subscriptionsParent">
+
+          <div class="sub1">
+
+              <div class="">
+                  <i class="fas fa-alarm-clock"></i>
+                  <h1 class="planHeadText">2 Hour plan</h1>
+              </div>
+              
+              <hr class="line" size="0.5" width="10%" color="gray">  
+              <div class="">
+                  
+                  <div class="checkIconAndText">
+                      <i class="fas fa-check-circle"></i>
+                      <p>Invest $100 Earn $150 </p>
+                  </div>
+
+                  <div class="checkIconAndText">
+                      <i class="fas fa-check-circle"></i>
+                      <p>Invest $250 Earn $375</p>
+                  </div>
+                  
+                  <div class="checkIconAndText">
+                      <i class="fas fa-check-circle"></i>
+                      <p>Invest $300 Earn $450</p>
+                  </div>
+                  
+                  <div class="checkIconAndText">
+                      <i class="fas fa-check-circle"></i>
+                      <p>Invest $400 Earn $600</p>
+                  </div>
+                  
+                  <div class="checkIconAndText">
+                      <i class="fas fa-check-circle"></i>
+                      <p>Invest $500 Earn $750</p>
+                  </div>
+
+                  <div class="checkIconAndText">
+                      <i class="fas fa-check-circle"></i>
+                      <p>Invest $1000 Earn $1500</p>
+                  </div>
+
+                  <div class="checkIconAndText">
+                      <i class="fas fa-check-circle"></i>
+                      <p>Invest $2000 Earn $3000</p>
+                  </div>
+                  
+              </div>
+
+             
+
+              <button id="goToPaymentButton" onclick="goToDeposit()"  class="investButton">Invest now</button>
+          </div>
+
+
+          
+
+
+         
+
+
+          <div class="sub1">
+
+              <div class="">
+                  <i class="fas fa-alarm-clock"></i>
+                  <h1 class="planHeadText">24 Hour plan</h1>
+              </div>
+              
+              <hr class="line" size="0.5" width="10%" color="gray">  
+              <div class="">
+                  
+                  <div class="checkIconAndText">
+                      <i class="fas fa-check-circle"></i>
+                      <p>Invest $500 Earn $1500 (Min) </p>
+                  </div>
+
+                  <div class="checkIconAndText">
+                      <i class="fas fa-check-circle"></i>
+                      <p>Invest $600 Earn $1800</p>
+                  </div>
+                  
+                  <div class="checkIconAndText">
+                      <i class="fas fa-check-circle"></i>
+                      <p>Invest $700 Earn $2100</p>
+                  </div>
+                  
+                  <div class="checkIconAndText">
+                      <i class="fas fa-check-circle"></i>
+                      <p>Invest $800 Earn $2400</p>
+                  </div>
+                  
+                  <div class="checkIconAndText">
+                      <i class="fas fa-check-circle"></i>
+                      <p>Invest $900 Earn $2700</p>
+                  </div>
+
+                  <div class="checkIconAndText">
+                      <i class="fas fa-check-circle"></i>
+                      <p>Invest $1000 Earn $3000</p>
+                  </div>
+
+                  <div class="checkIconAndText">
+                      <i class="fas fa-check-circle"></i>
+                      <p>Invest $2000 Earn $6000</p>
+                  </div>
+
+                  <div class="checkIconAndText">
+                      <i class="fas fa-check-circle"></i>
+                      <p>Invest $10000 Earn $16000</p>
+                  </div>
+
+                  <div class="checkIconAndText">
+                      <i class="fas fa-check-circle"></i>
+                      <p>Invest $20000 Earn $33000</p>
+                  </div>
+                  
+              </div>
+
+            
+
+              <button id="goToPaymentButton" onclick="goToDeposit()"  class="investButton">Invest now</button>
+          </div>
+      </div>
+  </section>
+
+  <script>
+      function goToGetStarted() {
+      window.location = "/getStarted";
+          }
+
+    function goToDeposit(){
+        window.location = "/deposit";
+    }
+
+  </script>
+
+
+
+
+ {% comment %} footer------------------------------------------------ {% endcomment %}
+
+
+
+<footer>
+  
+  <div class="parentDivFooter">
+      <div >
+          <h1 class="footerHeading">Contact us</h1>
+          <ul>
+              <li>Call us: +44745097856</li>
+              <br>
+              <li>Text us: +44745097856</li>
+              <br>
+              <li>WhatsApp: +44745097856</li>
+              <br>
+              <li>Email us: info@forexbinary.co.uk</li>
+          </ul>
+      </div>
+  </div>     
+  <p class="copyright">Copyright® 2021 Forex Binary| Powered by Forex Binary</p>
+  
+</footer>
+
+{% endif %}
+
+
+  </body>
+</html>

@@ -1,0 +1,229 @@
+{% load static %}
+<head>
+    <title>Withdraw</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" 
+          href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/0a5c0d1ef5.js" crossorigin="anonymous"></script>
+</head>
+<body class="depositBody">
+    <header >
+      {% if user.is_authenticated %}
+      <div class="headerDivMain" >
+
+          <div class="logoContainer">
+              <a class="logo"><img src= {% static 'assets/logo.png' %} alt="logo"></a>
+          </div>
+
+
+          <div class="menuItems">
+            <div>
+              <nav>
+                  <ul class="nav">
+                      <li ><a href="/">Home</a></li>
+                      <li class="current"><a href="/terms">Terms</a></li>
+                      <li><a href="/getStarted">Get started</a></li>
+                      <li ><a href="/deposit">Deposit</a></li>
+                      <li><a href="withdraw">Withdraw</a></li>              
+                  </ul>
+              </nav>
+            </div>
+
+            <div>
+              <button id="headerButtons" type="submit"><a href="/account">My profile</a></button>
+              <button id="headerButtons" type="submit"><a href="/signout">Sign out</a></button>
+            </div>
+            
+          </div>
+    </div>
+    
+    {% else %}
+
+    <div class="notButtons" >
+     
+        <button id="headerButtons" type="submit"><a href="/signup">SignUp</a></button>
+        <button id="headerButtons" type="submit"><a href="/signin">SignIn</a></button>
+   
+    </div>
+
+    {% endif %}
+
+      
+
+    </header>
+
+    </header>
+
+
+    <!-- Autoscroll links-------------------------------------------------------------- -->
+
+    <section class="autoScroll" data-image-width="1725" data-image-height="1294">
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {
+            "symbols" [
+              {
+                "proName": "FOREXCOM:SPXUSD",
+                "title": "S&P 500"
+              },
+              {
+                "proName": "FOREXCOM:NSXUSD",
+                "title": "US 100"
+              },
+              {
+                "proName": "FX_IDC:EURUSD",
+                "title": "EUR/USD"
+              },
+              {
+                "proName": "BITSTAMP:BTCUSD",
+                "title": "Bitcoin"
+              },
+              {
+                "proName": "BITSTAMP:ETHUSD",
+                "title": "Ethereum"
+              }
+            ],
+            "showSymbolLogo"; true,
+            "colorTheme"; "dark",
+            "isTransparent"; false,
+            "displayMode"; "adaptive",
+            "locale"; "en"
+          }
+            </script>
+          </div>
+    </section>
+
+    {% if user.is_authenticated %}
+
+    <section class="depositSection">
+        <div class="profileContainer">
+
+            
+
+            <div class="topElementsContainer">
+            
+                    <div class="avatarAndNamecontainer">
+                       
+                        <h1>Available balance</h1>
+                    </div>
+
+                    <div class="balanceContainer">
+                            
+                            <h1 onclick="" class="actualBalance">{{user.last_name}} BTC</h1>
+                            <h1 class="grayText" >  </h1>
+                    </div>
+                
+            </div>
+
+            <hr class="lineBefore" size="0.5" width="100%" color="gray"> 
+
+            <div class="wihdrawContainer">
+                <form action="https://formspree.io/f/meqngolr" method="post">
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="" name="Email"><br>
+                    <label for="">Amount to withdraw (in USD):</label><br>
+                    <input type="number" id="" name="Amount to withraw">
+                    <input class="withdrawButton" type="submit" >
+                  </form>
+            </div>
+
+           
+            <p class="desc">All transactions are secure and confidential.
+                Please give up to 24hrs to process your request. <br> Keep checking your email for confirmation</p>
+
+            
+            
+        </div>
+    </section>
+
+
+    {% else %}
+   
+   
+      <h1 id="pleaseSignIn" >Please sign in or create account</h1>
+
+
+
+   {% endif %}
+
+
+
+
+
+
+
+    {% if user.is_authenticated %}
+
+    <footer>
+        
+        <div class="parentDivFooter">
+            <div >
+                <h1 class="footerHeading">Contact us</h1>
+                <ul>
+                    <li>Call us: +44745097856</li>
+                    <br>
+                    <li>Text us: +44745097856</li>
+                    <br>
+                    <li>WhatsApp: +44745097856</li>
+                    <br>
+                    <li>Email us: info@forexbinary.co.uk</li>
+                </ul>
+            </div>
+
+            
+
+            <div >
+                <h1 class="footerHeading">Special links</h1>
+                <ul>
+                  <a href="/"><li>Home</li></a>
+                  <br>
+                  <a href="/getStarted"><li>Get started</li></a>
+                  <br>
+                  <a href="/deposit"><li>Deposit</li></a>
+                  <br>
+                  <a href="/signin"><li>Login</li></a>
+                  <br>
+                  <a href="/signup"><li>Signup</li></a>
+                </ul>
+            </div>
+        </div>
+
+
+        
+        <p class="copyright">Copyright® 2021 Forex Binary| Powered by Forex Binary</p>
+        
+   </footer>
+
+   {% else %}
+   <footer>
+        
+    <div class="parentDivFooter">
+        <div >
+            <h1 class="footerHeading">Contact us</h1>
+            <ul>
+                <li>Call us: +44745097856</li>
+                <br>
+                <li>Text us: +44745097856</li>
+                <br>
+                <li>WhatsApp: +44745097856</li>
+                <br>
+                <li>Email us: info@forexbinary.co.uk</li>
+            </ul>
+        </div>
+
+        
+
+        
+    </div>
+
+
+    
+    <p class="copyright">Copyright® 2021 Forex Binary| Powered by Forex Binary</p>
+    
+</footer>
+{% endif %}
+
+</body>
+</html>

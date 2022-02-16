@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}" />
+    <title>Sign Up</title>
+  </head>
+
+
+
+
+  <body>
+
+    
+
+
+    <secton>
+          <div class= "dopeContainer">
+
+            {% for message in messages %}
+                    <div
+                      class="alert alert-{{ message.tags }} alert-dismissible fade show"
+                      role="alert"
+                    >
+                      <strong>Alert</strong> {{ message }}
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="alert"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+            {% endfor %}
+
+
+            <h3>Create your account!</h3>
+
+              <form method="post" action="/signup">
+                {% csrf_token %}
+                <div class="AccountFormContainer">
+                  <label for="username">Username</label> 
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    name="username"
+                    placeholder="e.g Megatron"
+                    required
+                    />
+                
+                
+                
+                  <label for="fname">First Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="fname"
+                    name="fname"
+                    placeholder="e.g John"
+                    required
+                    />
+                
+               
+                  <label for="lname">Last Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="lname"
+                    name="lname"
+                    placeholder="e.g Doe"
+                    required
+                    />
+                 
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    placeholder="e.g johndoe@gmail.com"
+                    required
+                  />
+                
+                  <label for="pass1">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="pass1"
+                    name="pass1"
+                    placeholder="********"
+                    required
+                  />
+                
+                  <label for="pass2">Confirm Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="pass2"
+                    name="pass2"
+                    placeholder="********"
+                    required
+                  />
+               
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+              </div>
+              </form>
+            </div>
+            
+  </section>
+
+
+  </body>
+</html>

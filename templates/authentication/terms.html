@@ -1,0 +1,259 @@
+{% load static %}
+<head>
+    <title>Terms and conditions</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" 
+          href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/0a5c0d1ef5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header >
+      {% if user.is_authenticated %}
+      <div class="headerDivMain" >
+
+          <div class="logoContainer">
+              <a class="logo"><img src= {% static 'assets/logo.png' %} alt="logo"></a>
+          </div>
+
+
+          <div class="menuItems">
+            <div>
+              <nav>
+                  <ul class="nav">
+                      <li ><a href="/">Home</a></li>
+                      <li class="current"><a href="/terms">Terms</a></li>
+                      <li><a href="/getStarted">Get started</a></li>
+                      <li ><a href="/deposit">Deposit</a></li>
+                      <li><a href="withdraw">Withdraw</a></li>              
+                  </ul>
+              </nav>
+            </div>
+
+            <div>
+              <button id="headerButtons" type="submit"><a href="/account">My profile</a></button>
+              <button id="headerButtons" type="submit"><a href="/signout">Sign out</a></button>
+            </div>
+            
+          </div>
+    </div>
+    
+    {% else %}
+
+    <div class="notButtons" >
+     
+        <button id="headerButtons" type="submit"><a href="/signup">SignUp</a></button>
+        <button id="headerButtons" type="submit"><a href="/signin">SignIn</a></button>
+   
+    </div>
+
+    {% endif %}
+
+      
+
+    </header>
+
+
+    <!-- Autoscroll links-------------------------------------------------------------- -->
+
+    <section class="autoScroll" data-image-width="1725" data-image-height="1294">
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {
+            "symbols" [
+              {
+                "proName": "FOREXCOM:SPXUSD",
+                "title": "S&P 500"
+              },
+              {
+                "proName": "FOREXCOM:NSXUSD",
+                "title": "US 100"
+              },
+              {
+                "proName": "FX_IDC:EURUSD",
+                "title": "EUR/USD"
+              },
+              {
+                "proName": "BITSTAMP:BTCUSD",
+                "title": "Bitcoin"
+              },
+              {
+                "proName": "BITSTAMP:ETHUSD",
+                "title": "Ethereum"
+              }
+            ],
+            "showSymbolLogo"; true,
+            "colorTheme"; "dark",
+            "isTransparent"; false,
+            "displayMode"; "adaptive",
+            "locale"; "en"
+          }
+            </script>
+          </div>
+    </section>
+
+
+
+    <!-- terms--------------------------------------------------------------------------------------------- -->
+
+    <section class="termsSection">
+        
+        <h1 class="customH1">Terms and conditions</h1>
+        <ul>
+            <li>Copyright in the content of our publications and this website is owned by The List, or under agreement from a copyright owning partner, or under other rights you have granted us. All rights are reserved and are protected by copyright, database, design and other rights. The content (“Our Content”) of our publications, apps and websites includes editorial and listings, advertising and comments, reviews, photos, videos, sound, data and any material that users of the services or readers of our publications contribute. By supplying or making available content, you agree that you have the right to allow us to use the material and distribute it to third parties, and your grant of rights is not contravening other rights. You may not modify, publish, transmit, participate in the transfer or sale of, create derivative works, or in any way exploit any of Our Content in whole or in part without the prior written agreement of The List. All permitted copying, redistribution or publication of Our Content, shall require the user to agree that there shall be no changes in or deletion of author attribution, trademark legend, copyright or other rights notice and shall include links to this website. 
+            </li>
+
+            <br>
+
+            <li>
+                Individuals or organisations who supply or make content available including advertisements, comments, reviews, photos, videos, data or any other material, via the website or via means of post, email, FTP, URL or other method, grant us rights to use it under these terms and conditions except to the extent an agreement or variation signed by both parties has been executed. Our distribution of content to third parties, which may contain your personal data, will take place where we have made a legitimate assessment of compliance with GDPR, the processing purpose is modest and should be well understandable by you. 
+            </li>
+
+            <br>
+
+            <li>
+                Information provided to us as part of listings which may include names, phone numbers, addresses and email addresses of points of contact for an event or venue, and users who supply event or venue information including images are not subject to the Consumer Privacy Policy herein, and such personal data is managed as essential contact details. In order to ensure the accuracy and completeness of our listings, we may periodically communicate with such contacts. In the event, you wish to update any such data or remove it so as to cease receiving service communications, follow our Update this Event and Update this Place link on the page on which your details are published to request the change. We are maintaining for posterity an archive of information on all events, including this business contact data and essential details of users directly associated with supplying it.
+            </li>
+
+            <br>
+
+            <li>The contact data, and in particular business email addresses are provided solely for the purpose of assisting consumers with customer service matters and other activities as indicated. You agree not to compile any contact or email lists nor to use such addresses for marketing any product or service.</li>
+
+            <br>
+
+            <li>The permitted re-use of content through API, RSS, widget or other supply or feed mechanism that may from time to time be offered on the website or otherwise, unless covered by another written agreement with The List, are subject to all terms and conditions herein. In particular such permitted re-use shall be subject to ensuring that no changes in or deletion of author attribution, trademark legend or copyright or other rights notice shall be made. You will consider the risks involved in using any content and accept that, notwithstanding the testing and tuning we have undertaken, that the use of a supply or feed mechanism in any form may have an adverse impact on the speed of your device or web site.</li>
+
+            <br>
+
+            <li>The permitted re-use of content through API, RSS, widget or other supply or feed mechanism that may from time to time be offered on the website or otherwise, unless covered by another written agreement with The List, are subject to all terms and conditions herein. In particular such permitted re-use shall be subject to ensuring that no changes in or deletion of author attribution, trademark legend or copyright or other rights notice shall be made. You will consider the risks involved in using any content and accept that, notwithstanding the testing and tuning we have undertaken, that the use of a supply or feed mechanism in any form may have an adverse impact on the speed of your device or web site. You agree to use the RSS or widget only to provide summaries, each with a functional link to the associated item on our website that shall display the full content immediately (e.g., no jump pages or other intermediate or interstitial pages). You further agree not to frame or otherwise control the browser window (if any) in which our content opens, including limiting the size or position of such window. The List reserves the right to alter, modify or withdraw any service without notice and provides no service level agreement for speed or uptime. We may determine that a supply or feed mechanism is placing an unacceptable processing burden and withdraw the service.</li>
+
+            <br>
+
+            <li>The List is the registered trademark of The List Limited. The names, images and logos identifying The List and its products and services are proprietary marks of The List, and/or may be the proprietary marks of third parties. Any use made of these marks without obtaining permission may be an infringement of rights in those marks and The List reserves all rights to enforce such rights.</li>
+
+            <br>
+
+            <li>The List provides the content in good faith but no guarantee or representation is given that the content is accurate, complete or up-to-date. Use of content on the website is at your own risk.</li>
+
+            <br>
+
+            <li>While The List takes reasonable precautions on the website to prevent computer viruses and other malicious programs no liability is accepted for them. Connection to this site will be transmitted via public networks, and The List makes no warranty or representation that the operation of this website will be uninterrupted or error-free, and disclaims all liability in respect thereof.</li>
+
+            <br>
+
+            <li>This website contains links to other websites, including booking links. The List is not responsible or liable for any material supplied by or contained on any third party website which is linked from or to this, or any use of personal data by such a third party. The inclusion of any link on the website does not imply endorsement by The List of the linked site and The List offers no guarantee or liability for the efficient operation of these sites. Access to linked third party websites is at your own risk. Please note that these Terms and Conditions apply solely to this website and not to any linked third party sites.</li>
+
+            <br>
+
+            <li>The List keeps track of the number of visitors to its website, the pages they visit and how long they stay. We also collect information from visitors, including click data on advertisements, so that we are able to measure interest, tailor the presentation, and otherwise personalise our service. We will inform advertisers and partners about the number of visitors their advert has generated and other user behaviour.</li>
+
+            <br>
+
+            <li>These terms and conditions may be modified from time to time. Continued access or use of the Service by you will constitute your acceptance of any changes or revisions to these terms and conditions.</li>
+
+            <br>
+
+            <li>By using this service, the user represents and warrants that he or she will not use the service in any manner that would violate these Terms and Conditions or any third party's copyright, intellectual property, or other rights.</li>
+
+            <br>
+
+            <li>
+                This Agreement is a binding contract between you, us and the Nominee (if relevant), and it sets out your and our rights and obligations with respect to your membership of SyndicateRoom and use of the Platform. In executing this Agreement, you are indicating that you agree to adhere to, and be bound by, all of its terms.</li>
+
+                <br>
+
+                <li>This Agreement is a binding contract between you, us and the Nominee (if relevant), and it sets out your and our rights and obligations with respect to your membership of SyndicateRoom and use of the Platform. In executing this Agreement, you are indicating that you agree to adhere to, and be bound by, all of its terms.</li>
+
+                <br>
+
+                <li>If you become a Member you will have the opportunity to invest in some or all of the investments available from time to time on the Platform. There may be additional terms relating to the specific investment and, where notified by us and approved by you</li>
+
+                <br>
+
+                <li>We are required to establish your identity before you are able to use the Platform. We will use third-party organisations to assist with this process at the point when you register on our Platform. By registering on our Platform you consent to us and our partner organisations using your personal information for the purposes of carrying out credit checks and other searches on you to establish your identity, your creditworthiness and your suitability to carry out Investments. We will keep records of any information obtained.</li>
+
+                <br>
+
+                <li>In relation to investments made using the Platform, additional terms(funds) may apply that is, an activation fee for beginners($50) and withdrawal charges of upto $250 to make the balance $1200 or more depending on the amount to be withdrawn, as incorporated into this Agreement.Investment funds are irreversible upon maturity of a plan. Please ensure that you review all terms applicable to the type of investment that you are undertaking.</li>
+        </ul>
+    </section>
+
+
+  
+
+
+
+    {% if user.is_authenticated %}
+
+    <footer>
+        
+        <div class="parentDivFooter">
+            <div >
+                <h1 class="footerHeading">Contact us</h1>
+                <ul>
+                    <li>Call us: +44745097856</li>
+                    <br>
+                    <li>Text us: +44745097856</li>
+                    <br>
+                    <li>WhatsApp: +44745097856</li>
+                    <br>
+                    <li>Email us: info@forexbinary.co.uk</li>
+                </ul>
+            </div>
+
+            
+
+            <div >
+                <h1 class="footerHeading">Special links</h1>
+                <ul>
+                  <a href="/"><li>Home</li></a>
+                  <br>
+                  <a href="/getStarted"><li>Get started</li></a>
+                  <br>
+                  <a href="/deposit"><li>Deposit</li></a>
+                  <br>
+                  <a href="/signin"><li>Login</li></a>
+                  <br>
+                  <a href="/signup"><li>Signup</li></a>
+                </ul>
+            </div>
+        </div>
+
+
+        
+        <p class="copyright">Copyright® 2021 Forex Binary| Powered by Forex Binary</p>
+        
+   </footer>
+
+   {% else %}
+   <footer>
+        
+    <div class="parentDivFooter">
+        <div >
+            <h1 class="footerHeading">Contact us</h1>
+            <ul>
+                <li>Call us: +44745097856</li>
+                <br>
+                <li>Text us: +44745097856</li>
+                <br>
+                <li>WhatsApp: +44745097856</li>
+                <br>
+                <li>Email us: info@forexbinary.co.uk</li>
+            </ul>
+        </div>
+
+        
+
+        
+    </div>
+
+
+    
+    <p class="copyright">Copyright® 2021 Forex Binary| Powered by Forex Binary</p>
+    
+</footer>
+{% endif %}
+
+</body>
+</html>

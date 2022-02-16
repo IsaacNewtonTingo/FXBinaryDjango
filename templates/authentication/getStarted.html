@@ -1,0 +1,326 @@
+{% load static %}
+<head>
+    <title>Get started</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" 
+          href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://kit.fontawesome.com/0a5c0d1ef5.js" crossorigin="anonymous"></script>
+
+<script src="../JavaScript/investNavigation.js"></script>
+</head>
+<body class="depositBody">
+    <header >
+        {% if user.is_authenticated %}
+        <div class="headerDivMain" >
+
+            <div class="logoContainer">
+                <a class="logo"><img src= {% static 'assets/logo.png' %} alt="logo"></a>
+            </div>
+
+
+            <div class="menuItems">
+              <div>
+                <nav>
+                    <ul class="nav">
+                        <li ><a href="/">Home</a></li>
+                        <li ><a href="/terms">Terms</a></li>
+                        <li class="current"><a href="/getStarted">Get started</a></li>
+                        <li><a href="/deposit">Deposit</a></li>
+                        <li><a href="withdraw">Withdraw</a></li>              
+                    </ul>
+                </nav>
+              </div>
+
+              <div>
+                <button id="headerButtons" type="submit"><a href="/account">My profile</a></button>
+                <button id="headerButtons" type="submit"><a href="/signout">Sign out</a></button>
+              </div>
+              
+            </div>
+
+
+      </div>
+
+      {% else %}
+
+      <div class="notButtons" >
+       
+          <button id="headerButtons" type="submit"><a href="/signup">SignUp</a></button>
+          <button id="headerButtons" type="submit"><a href="/signin">SignIn</a></button>
+     
+      </div>
+
+      {% endif %}
+      
+
+    </header>
+
+
+    <!-- Autoscroll links-------------------------------------------------------------- -->
+
+    <section class="autoScroll" data-image-width="1725" data-image-height="1294">
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {
+            "symbols" [
+              {
+                "proName": "FOREXCOM:SPXUSD",
+                "title": "S&P 500"
+              },
+              {
+                "proName": "FOREXCOM:NSXUSD",
+                "title": "US 100"
+              },
+              {
+                "proName": "FX_IDC:EURUSD",
+                "title": "EUR/USD"
+              },
+              {
+                "proName": "BITSTAMP:BTCUSD",
+                "title": "Bitcoin"
+              },
+              {
+                "proName": "BITSTAMP:ETHUSD",
+                "title": "Ethereum"
+              }
+            ],
+            "showSymbolLogo"; true,
+            "colorTheme"; "dark",
+            "isTransparent"; false,
+            "displayMode"; "adaptive",
+            "locale"; "en"
+          }
+            </script>
+          </div>
+    </section>
+
+
+   
+
+    
+    <!-- Investment plan---------------------------------------------------------------------------------- -->
+
+    <section class="investmentContainer">
+
+        <h1 class="investmentTit" >Our Investment Plans</h1>
+            <p class="investmentDesc">We are a responsible firm that enhances your investments
+                by useing modern technology ans investments by using
+                modern technology and investments by using modern
+                technology and continuous monitoring of markets
+                by our experts.
+            </p>
+            <p class="investmentPlanText">Choose an investment plan :</p>
+    
+            <div class="subscriptionsParent">
+    
+                <div class="sub1">
+    
+                    <div class="">
+                        <i class="fas fa-alarm-clock"></i>
+                        <h1 class="planHeadText">2 Hour plan</h1>
+                    </div>
+                    
+                    <hr class="line" size="0.5" width="10%" color="gray">  
+                    <div class="">
+                        
+                        <div class="checkIconAndText">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Invest $100 Earn $150 </p>
+                        </div>
+    
+                        <div class="checkIconAndText">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Invest $250 Earn $375</p>
+                        </div>
+                        
+                        <div class="checkIconAndText">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Invest $300 Earn $450</p>
+                        </div>
+                        
+                        <div class="checkIconAndText">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Invest $400 Earn $600</p>
+                        </div>
+                        
+                        <div class="checkIconAndText">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Invest $500 Earn $750</p>
+                        </div>
+
+                        <div class="checkIconAndText">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Invest $1000 Earn $1500</p>
+                        </div>
+
+                        <div class="checkIconAndText">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Invest $2000 Earn $3000</p>
+                        </div>
+                        
+                    </div>
+    
+                    <hr class="line" size="0.5" width="10%" color="gray">  
+    
+                    <button id="goToPaymentButton" onclick="goToDeposit()"  class="investButton">Invest now</button>
+                </div>
+    
+    
+                
+    
+    
+               
+    
+    
+                <div class="sub1">
+    
+                    <div class="">
+                        <i class="fas fa-alarm-clock"></i>
+                        <h1 class="planHeadText">24 Hour plan</h1>
+                    </div>
+                    
+                    <hr class="line" size="0.5" width="10%" color="gray">  
+                    <div class="">
+                        
+                        <div class="checkIconAndText">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Invest $500 Earn $1500 (Min) </p>
+                        </div>
+    
+                        <div class="checkIconAndText">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Invest $600 Earn $1800</p>
+                        </div>
+                        
+                        <div class="checkIconAndText">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Invest $700 Earn $2100</p>
+                        </div>
+                        
+                        <div class="checkIconAndText">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Invest $800 Earn $2400</p>
+                        </div>
+                        
+                        <div class="checkIconAndText">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Invest $900 Earn $2700</p>
+                        </div>
+
+                        <div class="checkIconAndText">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Invest $1000 Earn $3000</p>
+                        </div>
+
+                        <div class="checkIconAndText">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Invest $2000 Earn $6000</p>
+                        </div>
+
+                        <div class="checkIconAndText">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Invest $10000 Earn $16000</p>
+                        </div>
+
+                        <div class="checkIconAndText">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Invest $20000 Earn $33000</p>
+                        </div>
+                        
+                    </div>
+    
+                    <hr class="line" size="0.5" width="10%" color="gray">  
+    
+                    <button id="goToPaymentButton" onclick="goToDeposit()"  class="investButton">Invest now</button>
+                </div>
+            </div>
+        </section>
+    
+        <script>
+            function goToDeposit() {
+            window.location = "/deposit";
+                }
+
+        </script>
+
+
+   
+
+
+    
+        {% if user.is_authenticated %}
+
+    <footer>
+        
+        <div class="parentDivFooter">
+            <div >
+                <h1 class="footerHeading">Contact us</h1>
+                <ul>
+                    <li>Call us: +44745097856</li>
+                    <br>
+                    <li>Text us: +44745097856</li>
+                    <br>
+                    <li>WhatsApp: +44745097856</li>
+                    <br>
+                    <li>Email us: info@forexbinary.co.uk</li>
+                </ul>
+            </div>
+
+            
+
+            <div >
+                <h1 class="footerHeading">Special links</h1>
+                <ul>
+                    <a href="/"><li>Home</li></a>
+                    <br>
+                    <a href="/getStarted"><li>Get started</li></a>
+                    <br>
+                    <a href="/deposit"><li>Deposit</li></a>
+                    <br>
+                    <a href="/signin"><li>Login</li></a>
+                    <br>
+                    <a href="/signup"><li>Signup</li></a>
+                </ul>
+            </div>
+        </div>
+
+
+        
+        <p class="copyright">Copyright® 2021 Forex Binary| Powered by Forex Binary</p>
+        
+   </footer>
+
+   {% else %}
+   <footer>
+        
+    <div class="parentDivFooter">
+        <div >
+            <h1 class="footerHeading">Contact us</h1>
+            <ul>
+                <li>Call us: +44745097856</li>
+                <br>
+                <li>Text us: +44745097856</li>
+                <br>
+                <li>WhatsApp: +44745097856</li>
+                <br>
+                <li>Email us: info@forexbinary.co.uk</li>
+            </ul>
+        </div>
+
+        
+
+        
+    </div>
+
+
+    
+    <p class="copyright">Copyright® 2021 Forex Binary| Powered by Forex Binary</p>
+    
+</footer>
+{% endif %}
+
+</body>
+</html>
