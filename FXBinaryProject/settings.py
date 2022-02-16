@@ -37,10 +37,9 @@ EMAIL_PORT = EMAIL_PORT
 SECRET_KEY = 'django-insecure-w_^9wemi@&qn)r-zysb8s^5)1(xt0*j#9ym^^yfwom66p&9ryq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'fxbinary.herokuapp.com']
-ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -57,13 +56,14 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+
 ]
 
 ROOT_URLCONF = 'FXBinaryProject.urls'
