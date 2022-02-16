@@ -86,7 +86,7 @@ a:visited {
 .getStartedImageContainer {
   width: 100%;
   min-height: 600px;
-  background-image: url("../Assets/coverImage.jpg");
+  /* background-image: url("../Assets/coverImage.jpg"); */
 }
 .bigTextsSmallAndButton {
   padding: 20px;
