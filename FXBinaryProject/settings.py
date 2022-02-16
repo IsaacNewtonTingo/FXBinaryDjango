@@ -1,8 +1,3 @@
-
-import django_heroku
-import dj_database_url
-from decouple import config
-
 """
 Django settings for FXBinaryProject project.
 
@@ -14,6 +9,10 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
+import django_heroku
+import dj_database_url
+from decouple import config
+
 
 import os
 from pathlib import Path
@@ -39,7 +38,7 @@ SECRET_KEY = 'django-insecure-w_^9wemi@&qn)r-zysb8s^5)1(xt0*j#9ym^^yfwom66p&9ryq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://fxbinarytraders.herokuapp.com/']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -51,7 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites'
+
 ]
 
 MIDDLEWARE = [
@@ -147,5 +146,3 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 django_heroku.settings(locals())
-
-SITE_ID = 1
