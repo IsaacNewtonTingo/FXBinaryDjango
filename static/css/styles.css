@@ -86,7 +86,7 @@ a:visited {
 .getStartedImageContainer {
   width: 100%;
   min-height: 600px;
-  /* background-image: url("../Assets/coverImage.jpg"); */
+  background-image: url("../assets/coverImage.jpg");
 }
 .bigTextsSmallAndButton {
   padding: 20px;
@@ -273,7 +273,7 @@ footer {
   height: 350px;
   background-color: #000000;
   padding: 20px;
-  background-image: url("../Assets/trading2.jpg");
+  background-image: url("../assets/trading2.jpg");
 }
 .footerHeading {
   color: white;
@@ -326,7 +326,7 @@ footer li {
   margin-bottom: 60px;
 }
 .depositBody {
-  background-image: url("../Assets/trading4.jpg");
+  background-image: url("../assets/trading4.jpg");
   min-height: 100%;
 }
 .depositSection {
