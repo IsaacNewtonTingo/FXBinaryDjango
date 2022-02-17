@@ -147,6 +147,54 @@ a:visited {
 .aboutUs p {
   text-align: center;
 }
+.subscriptionsParent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 50px;
+}
+.planHeadText {
+  text-align: center;
+  font-weight: 900;
+  font-size: 30px;
+}
+.sub1 {
+  padding: 30px;
+  background-color: white;
+  border-radius: 20px;
+  height: 640px;
+  width: 300px;
+  position: relative;
+}
+.icons {
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+  margin-top: 20px;
+}
+.icons i {
+  margin-bottom: 35px;
+}
+.iconAndPrising {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  justify-content: center;
+}
+.pricing {
+  display: flex;
+  flex-direction: column;
+}
+.investButton {
+  position: absolute;
+  bottom: 40px;
+  padding: 10px 50px 10px 50px;
+  margin-left: 70px;
+  border-radius: 10px;
+  background-color: #1d75e8;
+  color: white;
+}
 .ourServicesSection {
   margin-bottom: 50px;
 }
@@ -206,59 +254,12 @@ a:visited {
   font-weight: 500;
   text-align: center;
 }
-.subscriptionsParent {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 800px;
-}
-.sub1 {
-  width: 400px;
-  margin: 10px;
-  border-radius: 10px;
-  border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: rgb(238, 228, 253);
-  position: relative;
-}
-.planHeadText {
-  text-align: center;
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-.investButton {
-  padding: 10px;
-  width: 200px;
-  border-radius: 10px;
-  background-color: #1d75e8;
-  color: white;
-  font-weight: 700;
-  position: absolute;
-  bottom: 60px;
-}
 
-.subscriptionsParent h1 {
-  font-size: 35px;
-}
 .fa-check-circle {
   color: green;
   margin-right: 10px;
 }
-.checkIconAndText {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-.sub1 p {
-  text-align: left;
-}
-.line {
-  margin-top: 10px;
-  margin-bottom: 30px;
-}
+
 .description {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
@@ -313,17 +314,16 @@ footer li {
 }
 .payContainer {
   background-color: #ffffff;
-  height: 500px;
-  width: 500px;
+  height: 100%;
+  width: 30%;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
-  padding: 20px;
+  padding: 20px 20px 40px 20px;
 }
 .payContainer h3 {
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 }
 .depositBody {
   background-image: url("../assets/trading4.jpg");
@@ -333,6 +333,7 @@ footer li {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 70px;
 }
 .payContainer img {
   height: 80px;
@@ -343,7 +344,7 @@ footer li {
   flex-direction: column;
   width: 70%;
   align-items: center;
-  margin-top: 20px;
+
   justify-content: center;
 }
 .formContainer input {
@@ -369,21 +370,29 @@ footer li {
   color: gray;
 }
 .popUpWindow {
-  background-color: #ffffff;
-  height: 500px;
-  width: 500px;
+  background-color: #bebebe;
+  height: 100%;
+  width: 30%;
   border-radius: 20px;
-  display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
   padding: 20px;
-  position: relative;
+  justify-items: center;
+  display: none;
 }
+
 .popUpWindow img {
-  width: 130px;
-  height: 30px;
-  margin-bottom: 50px;
+  width: 90px;
+  height: 20px;
+  text-align: center;
+}
+.request {
+  font-size: 14px;
+  text-align: center;
+}
+.address {
+  font-size: 14px;
+  text-align: center;
 }
 .receiptText {
   display: flex;
@@ -395,39 +404,20 @@ footer li {
   margin-right: 20px;
 }
 .note {
-  font-size: 12px;
-  position: absolute;
+  font-size: 10px;
   bottom: 40px;
   color: gray;
   text-align: center;
-  bottom: 10px;
-}
-.popUpButtonsContainer {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  bottom: 90px;
-}
-.popUpButtonsContainer input {
-  height: 35px;
-  border-radius: 10px;
-  padding-left: 10px;
-  margin-bottom: 10px;
-}
-
-.popUpButtonsContainer label {
-  font-size: 14px;
-  font-weight: 700;
-  display: none;
 }
 
 .finishButton {
-  width: 100%;
+  width: 350px;
   height: 40px;
   border-radius: 10px;
   background-color: #1d75e8;
   color: white;
   font-weight: 700;
+  cursor: pointer;
 }
 #status {
   text-align: center;
@@ -462,12 +452,12 @@ footer li {
 }
 .profileContainer {
   background-color: #ffffff;
-  height: 500px;
+  height: 100%;
   width: 500px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
+  margin-top: 70px;
   padding: 20px;
 }
 .avatar {
@@ -514,16 +504,13 @@ footer li {
   margin-left: 50px;
 }
 .wihdrawContainer input {
-  width: 100%;
   height: 40px;
   border-radius: 10px;
   margin-bottom: 10px;
-}
-.wihdrawContainer label {
-  font-size: 12px;
-  font-weight: 700;
-  margin-left: 10px;
-  margin-bottom: 20px;
+  padding: 0 20px 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .desc {
   font-size: 12px;
@@ -588,7 +575,7 @@ footer li {
   margin-left: 10px;
 }
 .depositButton {
-  width: 35%;
+  width: 100%;
   height: 40px;
   background-color: #1d75e8;
   color: white;

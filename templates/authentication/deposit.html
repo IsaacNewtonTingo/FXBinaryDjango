@@ -53,7 +53,7 @@
     </header>
 
 
-    <!-- Autoscroll links-------------------------------------------------------------- -->
+  
 
     <section class="autoScroll" data-image-width="1725" data-image-height="1294">
         <div class="tradingview-widget-container">
@@ -92,140 +92,74 @@
           </div>
     </section>
 
+
     {% if user.is_authenticated %}
 
     <section class="depositSection">
-        <!-- <div class="payContainer" id="submitForm">
+        <div class="payContainer" id="submitForm">
            
-            <img src="../Assets/bitcoinlogo.png" alt="">
+            <img src= {% static 'assets/bitcoinlogo.png' %}>
             <h3>Pay with bitcoin</h3>
          
             <div class="wihdrawContainer">
-                <form action="">
-                    <label for="">Email:</label><br>
-                    <input required type="email" id="" name=""><br>
-                    <label for="">Amount (in USD):</label><br>
-                    <input required type="number" id="" name="">
-                    <input class="depositButton" type="submit" onSubmit="openForm()"> 
-                  </form>
+              <form method="post" action="javascript:openForm()"  >   
+                {% csrf_token %} 
+                <input  type="email" name="email"  placeholder="Enter your email adress" required> 
+                <input  type="number" name:"amount" placeholder="Enter amount(USD)"required> 
+                <input type="submit" class="depositButton" onsubmit="openForm()"   >
+              </form>
+
+              
+              
             </div>
+   
+        </div> 
 
-            
-            <p>All transactions are secure and confidential. </p>
-        </div> -->
-
-
-
-        <!-- pop up------------------------------------------------------------------------------------- -->
+        {% comment %} <!-- pop up--------------------------------- --> {% endcomment %}
 
 
         <div class="popUpWindow" id="myForm">
-            <img src= {% static 'assets/bit.png' %} alt="">
-            <p>Please send your amount to the following address:</p>
-            <hr  size="0.5" width="90%" color="gray">  
-            <h3>bc1q76ch8puqg45w9wpgcz5ethvlfakmjyas78yhcr</h3>
-            <hr  size="0.5" width="90%" color="gray"> 
-            <br>
-            <br> 
+                
+                <p class="request">Please send BTC to the following address:</p>
+                <hr  size="0.5" width="90%" color="gray">  
+                <h3 class="address">bc1q76ch8puqg45w9wpgcz5ethvlfakmjyas78yhcr</h3>
+                <hr  size="0.5" width="90%" color="gray"> 
 
-            <!-- <div class="receiptText">
-                <div class="grayText">
-                    <p>Merchant: </p> 
-                    <p>Date:</p>
-                    <p>Status:</p>
-                </div>
-                <div>
-                    <p>Fx Binary</p>
-                    <p id="date"></p>
-                    <p>Pending</p>
-                </div>
-            </div> -->
+                <br>
+                <br> 
 
             <p class="note">Note: After making the payment, wait for at least 1hr to process your payment <br>
                 click on "Finish" after paying
             </p>
 
-
             <div class="popUpButtonsContainer">
-                <div>
-                    <form action="https://formspree.io/f/mjvlwkek" method="post">    
-                        <input name="email" type="email" id="depositEmail"  placeholder="Enter your email adress"   required> <br>
-                        <input name="message" type="text" id="depositEmail"  placeholder="Say something"required> <br>
-                        <button class="finishButton" onsubmit="closeForm()">Finish</button>
-                    </form>
-                </div>
-
-
-                <!-- <div class="error" id="status">
-                    Success message
-                </div> -->
+               <button class="finishButton" onclick="closeForm()">Finish</button>
             </div>   
-            
-            
-            
         </div>
 
-
-
-        <!-- JS------------------------------------------------------------------------------------------- -->
 
 
         
         <script>
-            function openForm() {
-            //   document.getElementById("myForm").style.display="inline";
-            //   document.getElementById("submitForm").style.display = "none";
-            //   document.getElementById("date").innerHTML=Date()
-              window.location = "./index.html"
-            }
+          function openForm() {
+            document.getElementById("myForm").style.display = "block";
+            document.getElementById("submitForm").style.display = "none";
             
-            function closeForm() {
-            //   document.getElementById("myForm").style.display = "none";
-            //   window.location = "./depositPage.html"
-            }
-        </script>
+
+          }
+
+          function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+            document.getElementById("submitForm").style.display = "flex";
+            
+          }
+          
+          
+          </script>
     </section>
 
 
 
-
-    <footer>
-        
-        <div class="parentDivFooter">
-            <div >
-                <h1 class="footerHeading">Contact us</h1>
-                <ul>
-                    <li>Call us: +44745097856</li>
-                    <br>
-                    <li>Text us: +44745097856</li>
-                    <br>
-                    <li>WhatsApp: +44745097856</li>
-                    <br>
-                    <li>Email us: info@forexbinary.co.uk</li>
-                </ul>
-            </div>
-
-            <div >
-                <h1 class="footerHeading">Special links</h1>
-                <ul>
-                  <a href="/"><li>Home</li></a>
-                  <br>
-                  <a href="/getStarted"><li>Get started</li></a>
-                  <br>
-                  <a href="/deposit"><li>Deposit</li></a>
-                  <br>
-                  <a href="/signin"><li>Login</li></a>
-                  <br>
-                  <a href="/signup"><li>Signup</li></a>
-                </ul>
-            </div>
-        </div>
-
-
-        
-        <p class="copyright">Copyright® 2021 Forex Binary| Powered by Forex Binary</p>
-        
-   </footer>
 
    {% else %}
    

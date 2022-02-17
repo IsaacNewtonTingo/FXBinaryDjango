@@ -13,7 +13,7 @@ import django_heroku
 import dj_database_url
 from decouple import config
 
-
+import sys
 import os
 from pathlib import Path
 from . info import *
@@ -36,7 +36,10 @@ EMAIL_PORT = EMAIL_PORT
 SECRET_KEY = 'django-insecure-w_^9wemi@&qn)r-zysb8s^5)1(xt0*j#9ym^^yfwom66p&9ryq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if (len(sys.argv) >= 2 and sys.argv[1] == 'runserver'):
+    DEBUG = True
+else:
+    DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
