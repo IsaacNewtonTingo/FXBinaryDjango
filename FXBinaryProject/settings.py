@@ -36,10 +36,8 @@ EMAIL_PORT = EMAIL_PORT
 SECRET_KEY = 'django-insecure-w_^9wemi@&qn)r-zysb8s^5)1(xt0*j#9ym^^yfwom66p&9ryq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if (len(sys.argv) >= 2 and sys.argv[1] == 'runserver'):
-    DEBUG = True
-else:
-    DEBUG = False
+
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -61,7 +59,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
