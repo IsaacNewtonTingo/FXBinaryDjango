@@ -1,69 +1,101 @@
+<!DOCTYPE html>
 {% load static %}
-<head>
-    <title>M-Pesa withdrawal</title>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {% load static %}
+
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-    <link rel="stylesheet" 
-          href=
-"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://kit.fontawesome.com/0a5c0d1ef5.js" crossorigin="anonymous"></script>
-</head>
-<body class="depositBody">
-    <header >
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/0a5c0d1ef5.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>M-Pesa withdrawal</title>
+  </head>
+
+  <body>
+    <header>
       {% if user.is_authenticated %}
-      <div class="headerDivMain" >
 
+      <div class="headerDivMain">
         <div class="logoContainer">
-            <a class="logo"><img src= {% static 'assets/logo.png' %} alt="logo"></a>
-            <i class="fas fa-bars" onclick="toggleMenu()"></i>
+          <a class="logo"
+            ><img src= {% static 'assets/logo.png' %} alt="logo"></a
+          >
+          <i class="fas fa-bars" onclick="toggleMenu()"></i>
         </div>
-
 
         <div class="menuItems" id="menuList">
           <div>
             <nav>
-                <ul class="nav">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/terms">Terms</a></li>
-                    <li><a href="/getStarted">Get started</a></li>
-                    <li><a href="/deposit">Deposit</a></li>
-                    <li><a href="withdraw">Withdraw</a></li>              
-                </ul>
+              <ul class="nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/terms">Terms</a></li>
+                <li><a href="/getStarted">Get started</a></li>
+                <li><a href="/deposit">Deposit</a></li>
+                <li><a href="withdraw">Withdraw</a></li>
+              </ul>
             </nav>
           </div>
 
           <div class="profAndSign">
-            <button id="headerButtons" type="submit"><a href="/account">My profile</a></button>
-            <button id="headerButtons" type="submit"><a href="/signout">Sign out</a></button>
+            <button id="headerButtons" type="submit">
+              <a href="/account">My profile</a>
+            </button>
+            <button id="headerButtons" type="submit">
+              <a href="/signout">Sign out</a>
+            </button>
           </div>
-          
         </div>
+      </div>
 
+       {% else %}
+      <div class="headerDivMain">
+        <div class="logoContainer">
+          <a class="logo"
+            ><img src= {% static 'assets/logo.png' %} alt="logo"></a
+          >
+          <i class="fas fa-bars" onclick="toggleMenu()"></i>
+        </div>
+        <div class="menuItems" id="menuList">
+          <div class="notButtons">
+            <button id="headerButtons" type="submit">
+              <a href="/signup">SignUp</a>
+            </button>
+            <button id="headerButtons" type="submit">
+              <a href="/signin">SignIn</a>
+            </button>
+          </div>
+        </div>
+      </div>
 
-  </div>
-    {% else %}
-
-    <div class="notButtons" >
-     
-        <button id="headerButtons" type="submit"><a href="/signup">SignUp</a></button>
-        <button id="headerButtons" type="submit"><a href="/signin">SignIn</a></button>
-   
-    </div>
-
-    {% endif %}
-
-      
-
+      {% endif %}
     </header>
-
-    </header>
-
 
     <!-- Autoscroll links-------------------------------------------------------------- -->
 
-    <section class="autoScroll" data-image-width="1725" data-image-height="1294">
-        <div class="tradingview-widget-container">
-            <div class="tradingview-widget-container__widget"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    <section
+      class="autoScroll"
+      data-image-width="1725"
+      data-image-height="1294"
+    >
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script
+          type="text/javascript"
+          src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+          async
+        >
             {
             "symbols" [
               {
@@ -93,8 +125,8 @@
             "displayMode"; "adaptive",
             "locale"; "en"
           }
-            </script>
-          </div>
+        </script>
+      </div>
     </section>
 
     {% if user.is_authenticated %}
@@ -120,16 +152,16 @@
 
       {% else %}
       <div class="mpesa">    
-          <div class="popUpButtonsContainer">
+ 
 
             <form method="post">
               {% csrf_token %}
-              <input  type="number" name="phone_number" placeholder="Enter phone number" required>
-              <input  type="email" name="mpesaEmail" placeholder="Enter your email" required>
-              <input  type="number" name="mpesaAmount" placeholder="Enter amount" required> 
-              <input class="finishButton" type="submit" >
+              <input  type="number" name="phone_number" placeholder="Enter phone number" required><br>
+              <input  type="email" name="mpesaEmail" placeholder="Enter your email" required><br>
+              <input  type="number" name="mpesaAmount" placeholder="Enter amount" required> <br>
+              <button class="finishButton" type="submit"input>Submit</button>
             <form>
-          </div>   
+   
 
         </div>
       
@@ -143,7 +175,7 @@
 
           function toggleMenu(){
             if( menuList.style.maxHeight=="0px"){
-              menuList.style.maxHeight="250px"
+              menuList.style.maxHeight="450px"
             }
             else{
               menuList.style.maxHeight="0px"
@@ -159,6 +191,5 @@
       <h1 id="pleaseSignIn" >Please sign in or create account</h1>
     {% endif %}
 
-
-</body>
+  </body>
 </html>
