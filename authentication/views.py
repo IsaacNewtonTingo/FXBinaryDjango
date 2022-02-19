@@ -10,6 +10,7 @@ from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.utils.encoding import force_bytes, force_str
 from django.contrib.auth import authenticate, login, logout
 from . tokens import generate_token
+from django.core.mail import send_mail
 
 # Create your views here.
 
@@ -19,7 +20,7 @@ def home(request):
 
 
 def signup(request):
-    balance = "0"
+
     if request.method == "POST":
         username = request.POST['username']
         fname = request.POST['fname']
@@ -154,8 +155,69 @@ def getStarted(request):
 
 
 def deposit(request):
-    return render(request, "authentication/deposit.html")
+
+    if request.method == "POST":
+        sender_email = request.POST['email']
+        amount = request.POST['amount']
+
+        # send mail
+        send_mail(
+            "Deposit alert by " + sender_email,  # subject
+            sender_email + " has initiated a deposit of " + amount + \
+            " USD. Please make the updates ASAP",  # message
+            sender_email,  # from email
+            ['fxbinaryinfotech@gmail.com'],  # to email
+        )
+        return render(request, "authentication/deposit.html", {
+            'sender_email': sender_email,
+            'amount_usd': amount,
+        })
+    else:
+        return render(request, "authentication/deposit.html")
 
 
 def withdraw(request):
-    return render(request, "authentication/withdraw.html")
+
+    if request.method == "POST":
+        sender_email = request.POST['btcEmail']
+        amountUSD = request.POST['amountUSD']
+        btcAddress = request.POST['btcAddress']
+
+        # send mail
+        send_mail(
+            "Withdrawal request",
+            sender_email + " wants to withdraw " + amountUSD +
+            " USD Here is their BTC address : \n " + btcAddress,
+            sender_email,
+            ['fxbinaryinfotech@gmail.com'],
+        )
+        return render(request, "authentication/withdraw.html", {
+            'sender_email': sender_email,
+            'amount_usd': amountUSD,
+        })
+
+    else:
+        return render(request, "authentication/withdraw.html")
+
+
+def mpesaWithdrawal(request):
+    if request.method == "POST":
+        phone_number = request.POST['phone_number']
+        mpesaEmail = request.POST['mpesaEmail']
+        mpesaAmount = request.POST['mpesaAmount']
+
+        # send mail
+        send_mail(
+            "M-Pesa withdrawal request",
+            mpesaEmail + " wants to withdraw " + mpesaAmount +
+            " USD. \n Here is their M-Pesa number : \n " + phone_number,
+            mpesaEmail,
+            ['fxbinaryinfotech@gmail.com'],
+        )
+        return render(request, "authentication/mpesaWithdrawal.html", {
+            'mpesaEmail': mpesaEmail,
+            'mpesaAmount': mpesaAmount,
+        })
+
+    else:
+        return render(request, "authentication/mpesaWithdrawal.html")

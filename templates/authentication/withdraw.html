@@ -12,31 +12,34 @@
       {% if user.is_authenticated %}
       <div class="headerDivMain" >
 
-          <div class="logoContainer">
-              <a class="logo"><img src= {% static 'assets/logo.png' %} alt="logo"></a>
+        <div class="logoContainer">
+            <a class="logo"><img src= {% static 'assets/logo.png' %} alt="logo"></a>
+            <i class="fas fa-bars" onclick="toggleMenu()"></i>
+        </div>
+
+
+        <div class="menuItems" id="menuList">
+          <div>
+            <nav>
+                <ul class="nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/terms">Terms</a></li>
+                    <li><a href="/getStarted">Get started</a></li>
+                    <li><a href="/deposit">Deposit</a></li>
+                    <li class="current"><a href="withdraw">Withdraw</a></li>              
+                </ul>
+            </nav>
           </div>
 
-
-          <div class="menuItems">
-            <div>
-              <nav>
-                  <ul class="nav">
-                      <li ><a href="/">Home</a></li>
-                      <li class="current"><a href="/terms">Terms</a></li>
-                      <li><a href="/getStarted">Get started</a></li>
-                      <li ><a href="/deposit">Deposit</a></li>
-                      <li><a href="withdraw">Withdraw</a></li>              
-                  </ul>
-              </nav>
-            </div>
-
-            <div>
-              <button id="headerButtons" type="submit"><a href="/account">My profile</a></button>
-              <button id="headerButtons" type="submit"><a href="/signout">Sign out</a></button>
-            </div>
-            
+          <div class="profAndSign">
+            <button id="headerButtons" type="submit"><a href="/account">My profile</a></button>
+            <button id="headerButtons" type="submit"><a href="/signout">Sign out</a></button>
           </div>
-    </div>
+          
+        </div>
+
+
+  </div>
     
     {% else %}
 
@@ -98,56 +101,93 @@
     {% if user.is_authenticated %}
 
     <section class="depositSection">
-        <div class="profileContainer">
 
-            <div class="topElementsContainer">
-            
-                    <div class="avatarAndNamecontainer">
-                       
-                        <h1>Available balance</h1>
-                    </div>
+                    
+                    {% if sender_email %}
 
-                    <div class="balanceContainer">
-                            
-                            <h1 onclick="" class="actualBalance">{{user.last_name}} BTC</h1>
-                            <h1 class="grayText" >  </h1>
-                    </div>
+                    <div class="majorWithdrawConatiner">
+
+                      <div class="topElementsContainer">
                 
-            </div>
+                          <div class="avatarAndNamecontainer">
+                              <h1  class="avail">Submited successfully</h1>
+                          </div>
 
-            <hr class="lineBefore" size="0.5" width="100%" color="gray"> 
+                              
+                      </div>
 
-            <div class="wihdrawContainer">
-              <form method="post" action="javascript:openForm()"  >   
-                {% csrf_token %} 
-                <input  type="email" name="email"  placeholder="Enter your email adress" required> 
-                <input  type="number" name:"amount" placeholder="Enter amount(USD)"required> 
-                <input  type="number" name:"amount" placeholder="Enter BTC adddress"required> 
-                <input type="submit" class="depositButton" onsubmit="openForm()"   >
-              </form>
-
-              
-              
-            </div>
-
-           
-            <p class="desc">All transactions are secure and confidential.
-                Please give up to 24hrs to process your request. <br> Keep checking your email for confirmation</p>
-
-            
-            
-        </div>
-    </section>
+                      <hr class="lineBefore" size="0.5" width="100%" color="gray"> 
+                    </div>
 
 
-    {% else %}
-   
-   
+                          {% else %}
+
+
+                      <div class="majorWithdrawConatiner">
+
+                        <div class="topElementsContainer">
+
+                            <div class="avatarAndNamecontainer">
+                                <h1 class="avail">Available balance</h1>
+                            </div>
+
+                            <div class="balanceContainer">
+                              <p class="actualBalance">{{user.last_name}} BTC</p>
+                              
+                            </div>     
+                        </div>
+
+                        <hr class="lineBefore" size="0.5" width="100%" color="gray"> 
+
+                      <div class="wihdrawContainer">
+                      <form method="post" action="" >   
+                      {% csrf_token %} 
+                            <input  type="email" name="btcEmail"  placeholder="Enter your email adress" required> 
+                            <input  type="number" name="amountUSD" id="amountUSD" placeholder="Enter amount(USD)"required> 
+                            <input  type="text" name="btcAddress" id="btcAddress" placeholder="Enter BTC adddress"required> 
+                            <input type="submit" class="depositButton" >
+                      </form>
+                      <button id="greenButton" class="depositButton" onclick="openForm()" >M-Pesa withdrawal</button>
+                      </div>
+
+
+                      <p class="desc">All transactions are secure and confidential.
+                      Please give up to 24hrs to process your request. <br> 
+                      Keep checking your email for confirmation</p>   
+                      </div>
+
+
+                   {% endif %}
+        
+
+  <script>
+    function openForm() {
+      
+      window.location.replace("/mpesaWithdrawal");      
+    }   
+  </script>
+
+  <script>
+
+    var menuList=document.getElementById("menuList")
+      menuList.style.maxHeight="0px";
+
+      function toggleMenu(){
+        if( menuList.style.maxHeight=="0px"){
+          menuList.style.maxHeight="250px"
+        }
+        else{
+          menuList.style.maxHeight="0px"
+
+        }
+      }
+</script>
+
+
+  </section>
+    {% else %}  
       <h1 id="pleaseSignIn" >Please sign in or create account</h1>
-
-
-
-   {% endif %}
+    {% endif %}
 
 
 </body>

@@ -11,33 +11,36 @@
 <body  class="depositBody">
     <header >
       {% if user.is_authenticated %}
-        <div class="headerDivMain" >
+      <div class="headerDivMain" >
 
-            <div class="logoContainer">
-                <a class="logo"><img src= {% static 'assets/logo.png' %} alt="logo"></a>
-            </div>
+        <div class="logoContainer">
+            <a class="logo"><img src= {% static 'assets/logo.png' %} alt="logo"></a>
+            <i class="fas fa-bars" onclick="toggleMenu()"></i>
+        </div>
 
 
-            <div class="menuItems">
-              <div>
-                <nav>
-                    <ul class="nav">
-                        <li ><a href="/">Home</a></li>
-                        <li ><a href="/terms">Terms</a></li>
-                        <li><a href="/getStarted">Get started</a></li>
-                        <li class="current"><a href="/deposit">Deposit</a></li>
-                        <li><a href="withdraw">Withdraw</a></li>              
-                    </ul>
-                </nav>
-              </div>
+        <div class="menuItems" id="menuList">
+          <div>
+            <nav>
+                <ul class="nav">
+                    <li ><a href="/">Home</a></li>
+                    <li><a href="/terms">Terms</a></li>
+                    <li><a href="/getStarted">Get started</a></li>
+                    <li class="current"><a href="/deposit">Deposit</a></li>
+                    <li><a href="withdraw">Withdraw</a></li>              
+                </ul>
+            </nav>
+          </div>
 
-              <div>
-                <button id="headerButtons" type="submit"><a href="/account">My profile</a></button>
-                <button id="headerButtons" type="submit"><a href="/signout">Sign out</a></button>
-              </div>
-              
-            </div>
-      </div>
+          <div class="profAndSign">
+            <button id="headerButtons" type="submit"><a href="/account">My profile</a></button>
+            <button id="headerButtons" type="submit"><a href="/signout">Sign out</a></button>
+          </div>
+          
+        </div>
+
+
+  </div>
       
       {% else %}
 
@@ -99,18 +102,24 @@
         <div class="payContainer" id="submitForm">
            
             <img src= {% static 'assets/bitcoinlogo.png' %}>
-            <h3>Pay with bitcoin</h3>
+            <h3 class="payWith">Pay with bitcoin</h3>
          
-            <div class="wihdrawContainer">
-              <form method="post" action="javascript:openForm()"  >   
-                {% csrf_token %} 
-                <input  type="email" name="email"  placeholder="Enter your email adress" required> 
-                <input  type="number" name:"amount" placeholder="Enter amount(USD)"required> 
-                <input type="submit" class="depositButton" onsubmit="openForm()"   >
-              </form>
+          
+            <div class="sefferCont">
+              {% if sender_email %}
+              
+              <p class="suc">Please click on finish to complete the transaction</p>
+             
+              <button class="sucButton" onclick="openForm()">Finish</button>
+              {% else %}
 
-              
-              
+              <form method="post" action="{% url 'deposit' %}"  >   
+                {% csrf_token %} 
+                <input  type="email" name="email" id="email" placeholder="Enter your email adress" required> 
+                <input  type="number" name="amount" id="usd" placeholder="Enter amount(USD)"required> 
+                <input  class="depositButton" type="submit">        
+              </form>
+              {% endif %}      
             </div>
    
         </div> 
@@ -119,55 +128,62 @@
 
 
         <div class="popUpWindow" id="myForm">
+              <div>
                 
-                <p class="request">Please send BTC to the following address:</p>
+                <p class="request">Please send <span id="result"></span> BTC to the following address:</p>
                 <hr  size="0.5" width="90%" color="gray">  
-                <h3 class="address">bc1q76ch8puqg45w9wpgcz5ethvlfakmjyas78yhcr</h3>
+                <h3 class="address">bc1q76ch8puqg45w9<br>wpgcz5ethvlfakmjyas78yhcr</h3>
                 <hr  size="0.5" width="90%" color="gray"> 
 
-                <br>
-                <br> 
+              </div>
 
-            <p class="note">Note: After making the payment, wait for at least 1hr to process your payment <br>
-                click on "Finish" after paying
-            </p>
+              <div>
+                <p class="note">Note: After making the payment, wait for at least 1hr to process your payment <br>
+                    click on "Close" after paying
+                </p>
+              </div>
+           
 
             <div class="popUpButtonsContainer">
-               <button class="finishButton" onclick="closeForm()">Finish</button>
-            </div>   
+               <button id="close" class="finishButton" type="submit" onclick="closeForm()">Close</button>
+            </div> 
+          
         </div>
-
-
-
         
         <script>
           function openForm() {
-            document.getElementById("myForm").style.display = "block";
-            document.getElementById("submitForm").style.display = "none";
-            
-
+            document.getElementById("myForm").style.display = "flex";
+            var num1={{amount_usd}};
+            var num2="0.000023";
+            document.getElementById('result').innerHTML=(num1*num2);
           }
 
           function closeForm() {
             document.getElementById("myForm").style.display = "none";
             document.getElementById("submitForm").style.display = "flex";
+            window.location.replace("/deposit");
             
           }
           
-          
+          </script>
+          <script>
+            var menuList=document.getElementById("menuList")
+              menuList.style.maxHeight="0px";
+  
+              function toggleMenu(){
+                if( menuList.style.maxHeight=="0px"){
+                  menuList.style.maxHeight="250px"
+                }
+                else{
+                  menuList.style.maxHeight="0px"
+  
+                }
+              }       
           </script>
     </section>
 
-
-
-
-   {% else %}
-   
-   
+   {% else %}  
       <h1 id="pleaseSignIn" >Please sign in or create account</h1>
-
-
-
    {% endif %}
 </body>
 </html>

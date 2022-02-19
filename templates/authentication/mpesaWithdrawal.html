@@ -1,12 +1,11 @@
 {% load static %}
 <head>
-    <title>Account</title>
+    <title>M-Pesa withdrawal</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
     <link rel="stylesheet" 
           href=
 "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://kit.fontawesome.com/0a5c0d1ef5.js" crossorigin="anonymous"></script>
-
 </head>
 <body class="depositBody">
     <header >
@@ -23,10 +22,10 @@
           <div>
             <nav>
                 <ul class="nav">
-                    <li ><a href="/">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="/terms">Terms</a></li>
                     <li><a href="/getStarted">Get started</a></li>
-                    <li class="current"><a href="/deposit">Deposit</a></li>
+                    <li><a href="/deposit">Deposit</a></li>
                     <li><a href="withdraw">Withdraw</a></li>              
                 </ul>
             </nav>
@@ -41,18 +40,20 @@
 
 
   </div>
-      
-  {% else %}
+    {% else %}
 
-      <div class="notButtons" >
-       
-          <button id="headerButtons" type="submit"><a href="/signup">SignUp</a></button>
-          <button id="headerButtons" type="submit"><a href="/signin">SignIn</a></button>
+    <div class="notButtons" >
      
-      </div>
+        <button id="headerButtons" type="submit"><a href="/signup">SignUp</a></button>
+        <button id="headerButtons" type="submit"><a href="/signin">SignIn</a></button>
+   
+    </div>
 
-      {% endif %}
-  
+    {% endif %}
+
+      
+
+    </header>
 
     </header>
 
@@ -96,92 +97,68 @@
           </div>
     </section>
 
-
-    {% comment %} Some message {% endcomment %}
-
-    
     {% if user.is_authenticated %}
 
     <section class="depositSection">
-        {% csrf_token %}
-        <div class="accountDetailsContainer">
 
-            <div class="topElementsContainer">
-            
-                    <div class="avatarAndNamecontainer">
-                       
-                        <h1 class="hellowBih">Hello {{user.username}}</h1>
-                    </div>
+      {% if mpesaAmount %}
+      
+      <div class="majorWithdrawConatiner">
 
-                    <div class="balanceContainer">
-                            <h1 class="grayText" id="currento" >Current balance:  </h1>
-                            <h1 id="balance" onclick="" class="actualBalance"> {{user.last_name}} BTC </h1>
-                    </div>
+        <div class="topElementsContainer">
+  
+            <div class="avatarAndNamecontainer">
+                <h1>Submited successfully</h1>
+            </div>
+
                 
-            </div>
-
-            <hr class="lineAccount" size="0.5" width="100%" color="gray"> 
-
-            <div class="receiptText">
-                <div class="grayText" >
-                        <p>Name:</p>                
-                        <p>email:</p>
-                </div>
-
-                <div class="attributes">
-                    
-                        <p id="full_name">{{user.first_name}} </p>                      
-                        <p id="email">{{user.email}}</p>
-                </div>
-            </div>
-
-            <div class="logoutAndEditContainer">
-             
-                <button class="profileActionsButton"><a href="/signout">Sign out</a></button>
-                
-            </div>
-            
         </div>
-    </section>
 
-    <script>
+        <hr class="lineBefore" size="0.5" width="100%" color="gray"> 
+      </div>
+
+
+      {% else %}
+      <div class="mpesa">    
+          <div class="popUpButtonsContainer">
+
+            <form method="post">
+              {% csrf_token %}
+              <input  type="number" name="phone_number" placeholder="Enter phone number" required>
+              <input  type="email" name="mpesaEmail" placeholder="Enter your email" required>
+              <input  type="number" name="mpesaAmount" placeholder="Enter amount" required> 
+              <input class="finishButton" type="submit" >
+            <form>
+          </div>   
+
+        </div>
+      
+      {% endif %}
+
+      
+      <script>
+
+        var menuList=document.getElementById("menuList")
+          menuList.style.maxHeight="0px";
+
+          function toggleMenu(){
+            if( menuList.style.maxHeight=="0px"){
+              menuList.style.maxHeight="250px"
+            }
+            else{
+              menuList.style.maxHeight="0px"
+
+            }
+          }
+    </script>
+      
         
-      database_ref.child("users/" + user.uid).on("value", function (snapshot) {
-        document.getElementById("full_name").value = snapshot.val().full_name;
-        document.getElementById("email").value = snapshot.val().email;
-        document.getElementById("balance").value = snapshot.val().balance;
-      });
-    </script>
+  </section>
 
-    <script>
-      var menuList=document.getElementById("menuList")
-        menuList.style.maxHeight="0px";
-
-        function toggleMenu(){
-          if( menuList.style.maxHeight=="0px"){
-            menuList.style.maxHeight="250px"
-          }
-          else{
-            menuList.style.maxHeight="0px"
-
-          }
-        }       
-    </script>
-
- 
-
-
-
-   
-
-   {% else %}
-   
-   
+    {% else %}  
       <h1 id="pleaseSignIn" >Please sign in or create account</h1>
+    {% endif %}
 
-
-
-   {% endif %}
 
 </body>
 </html>

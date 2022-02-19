@@ -14,6 +14,7 @@ urlpatterns = [
     path('getStarted', views.getStarted, name="getStarted"),
     path('deposit', views.deposit, name="deposit"),
     path('withdraw', views.withdraw, name="withdraw"),
+    path('mpesaWithdrawal', views.mpesaWithdrawal, name="mpesaWithdrawal"),
 
 
 ]

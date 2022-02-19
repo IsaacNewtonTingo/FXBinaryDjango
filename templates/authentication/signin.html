@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'css/forms.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/form.css' %}" />
     <title>Sign Up</title>
   </head>
 
@@ -19,7 +19,7 @@
 
 
     <secton>
-          <div class= "dopeContainer">
+          <div class= "container">
 
             {% for message in messages %}
                     <div
@@ -39,18 +39,18 @@
             {% endfor %}
 
 
-            <h3>Create your account!</h3>
+            <h3>Login to your account</h3>
 
               <form method="post" action="/signin">
                 {% csrf_token %}
                 <div class="AccountFormContainer">
-                  <label for="username">Username</label> 
+               
                   <input
                     type="text"
                     class="form-control"
                     id="username"
                     name="username"
-                    placeholder="e.g Megatron"
+                    placeholder="Username"
                     required
                     />
                 
@@ -58,19 +58,23 @@
                 
                   
                 
-                  <label for="pass1">Password</label>
+             
                   <input
                     type="password"
                     class="form-control"
                     id="pass1"
                     name="pass1"
-                    placeholder="********"
+                    placeholder="Password"
                     required
                   />
                 
                  
                
-                <button type="submit" class="btn btn-primary">Sign Up</button>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <div class="already">
+                  <P>Don't have an account?<p/>
+                  <a href="/signup">Signup</a>
+                </div>
               </div>
               </form>
             </div>

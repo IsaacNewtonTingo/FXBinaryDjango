@@ -9,35 +9,40 @@
 </head>
 <body>
     <header >
+      
       {% if user.is_authenticated %}
+
+
       <div class="headerDivMain" >
 
-          <div class="logoContainer">
-              <a class="logo"><img src= {% static 'assets/logo.png' %} alt="logo"></a>
+        <div class="logoContainer">
+            <a class="logo"><img src= {% static 'assets/logo.png' %} alt="logo"></a>
+            <i class="fas fa-bars" onclick="toggleMenu()"></i>
+        </div>
+
+
+        <div class="menuItems" id="menuList">
+          <div>
+            <nav>
+                <ul class="nav">
+                    <li><a href="/">Home</a></li>
+                    <li class="current"><a href="/terms">Terms</a></li>
+                    <li><a href="/getStarted">Get started</a></li>
+                    <li><a href="/deposit">Deposit</a></li>
+                    <li><a href="withdraw">Withdraw</a></li>              
+                </ul>
+            </nav>
           </div>
 
-
-          <div class="menuItems">
-            <div>
-              <nav>
-                  <ul class="nav">
-                      <li ><a href="/">Home</a></li>
-                      <li class="current"><a href="/terms">Terms</a></li>
-                      <li><a href="/getStarted">Get started</a></li>
-                      <li ><a href="/deposit">Deposit</a></li>
-                      <li><a href="withdraw">Withdraw</a></li>              
-                  </ul>
-              </nav>
-            </div>
-
-            <div>
-              <button id="headerButtons" type="submit"><a href="/account">My profile</a></button>
-              <button id="headerButtons" type="submit"><a href="/signout">Sign out</a></button>
-            </div>
-            
+          <div class="profAndSign">
+            <button id="headerButtons" type="submit"><a href="/account">My profile</a></button>
+            <button id="headerButtons" type="submit"><a href="/signout">Sign out</a></button>
           </div>
-    </div>
-    
+          
+        </div>
+
+
+  </div>
     {% else %}
 
     <div class="notButtons" >
@@ -190,6 +195,22 @@
    {% else %}
   
 {% endif %}
+
+          <script>
+
+              var menuList=document.getElementById("menuList")
+                menuList.style.maxHeight="0px";
+
+                function toggleMenu(){
+                  if( menuList.style.maxHeight=="0px"){
+                    menuList.style.maxHeight="250px"
+                  }
+                  else{
+                    menuList.style.maxHeight="0px"
+
+                  }
+                }
+          </script>
 
 </body>
 </html>

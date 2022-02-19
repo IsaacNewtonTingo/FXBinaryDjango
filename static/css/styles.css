@@ -9,6 +9,9 @@ body {
 .logoContainer p {
   color: #ffffff;
 }
+.logoContainer i {
+  display: none;
+}
 
 .notButtons {
   display: flex;
@@ -65,7 +68,6 @@ header .nav a {
 header a:hover {
   color: #cccccc;
   font-weight: bold;
-  font-size: 18px;
 }
 header .current a {
   color: #e8491d;
@@ -194,9 +196,6 @@ a:visited {
   border-radius: 10px;
   background-color: #1d75e8;
   color: white;
-}
-.ourServicesSection {
-  margin-bottom: 50px;
 }
 .ourServicesTextContainer {
   padding: 40px;
@@ -333,7 +332,7 @@ footer li {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 70px;
+  padding: 70px 0 70px 0;
 }
 .payContainer img {
   height: 80px;
@@ -363,29 +362,32 @@ footer li {
   font-weight: 700;
   margin-left: 10px;
 }
-.payContainer p {
-  font-size: 12;
-  bottom: 0px;
-  position: absolute;
-  color: gray;
+.suc {
+  font-size: 8;
+  color: rgb(177, 0, 0);
 }
+
 .popUpWindow {
   background-color: #bebebe;
   height: 100%;
   width: 30%;
   border-radius: 20px;
-  flex-direction: column;
-  align-items: center;
   padding: 20px;
-  justify-items: center;
   display: none;
+  flex-direction: column;
+}
+.mpesa {
+  background-color: #bebebe;
+  height: 100%;
+  width: 30%;
+  border-radius: 20px;
+  padding: 20px;
 }
 
-.popUpWindow img {
-  width: 90px;
-  height: 20px;
-  text-align: center;
+#result {
+  font-weight: 900;
 }
+
 .request {
   font-size: 14px;
   text-align: center;
@@ -411,13 +413,14 @@ footer li {
 }
 
 .finishButton {
-  width: 350px;
-  height: 40px;
+  width: 100px;
+  height: 30px;
   border-radius: 10px;
-  background-color: #1d75e8;
+  background-color: #cc5c00;
   color: white;
   font-weight: 700;
   cursor: pointer;
+  font-size: 12px;
 }
 #status {
   text-align: center;
@@ -457,7 +460,15 @@ footer li {
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  margin-top: 70px;
+  margin-top: 0px;
+  padding: 20px;
+}
+.majorWithdrawConatiner {
+  background-color: #ffffff;
+  width: 500px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
   padding: 20px;
 }
 .avatar {
@@ -497,7 +508,23 @@ footer li {
   font-weight: 900;
 }
 .lineBefore {
-  margin-bottom: 80px;
+  margin-bottom: 30px;
+}
+#greenButton {
+  background-color: #00801c;
+  width: 40%;
+}
+.popUpButtonsContainer {
+  display: flex;
+  align-items: center;
+  padding-top: 30px;
+}
+.popUpButtonsContainer input {
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding-left: 20px;
 }
 .attributes {
   font-weight: 700;
@@ -516,7 +543,6 @@ footer li {
   font-size: 12px;
   font-weight: 500;
   color: gray;
-  margin-top: 110px;
   text-align: center;
 }
 .withdrawButton {
@@ -530,6 +556,7 @@ footer li {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 .signupContainer {
   background-color: #ffffff;
@@ -615,4 +642,501 @@ footer li {
   justify-content: center;
   background-color: white;
   color: white;
+}
+.sucButton {
+  width: 100%;
+  height: 40px;
+  background-color: #008150;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.sefferCont input {
+  height: 40px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  margin-top: 0;
+  padding-left: 10px;
+}
+
+@media only screen and (max-width: 700px) {
+  .getStartedImageContainer {
+    min-height: 50px;
+  }
+
+  .bigTextsContainer h1 {
+    color: white;
+    font-size: 14px;
+    font-weight: 900;
+  }
+  .bigTextsContainer {
+    margin-top: 20px;
+  }
+  .bigTextsContainer p {
+    color: white;
+    font-size: 10px;
+    margin-top: 20px;
+  }
+  .bigTextsContainer button {
+    padding: 10px;
+    width: 100px;
+    border-radius: 10px;
+    background-color: #1d75e8;
+    color: white;
+    font-weight: 700;
+    font-size: 10px;
+  }
+
+  header {
+    background-color: rgb(0, 0, 0);
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+  }
+  .logo img {
+    width: 30px;
+    height: 30px;
+  }
+  .aboutUs {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .aboutUs h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+  .aboutUs p {
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .parentDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .divsContainer {
+    height: 100%;
+    background-color: rgb(238, 228, 253);
+    width: 100%;
+    padding: 20px;
+    margin: 20px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+  }
+  .divsContainer img {
+    width: 40px;
+    height: 40px;
+  }
+  .description {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    font-size: 12px;
+    text-align: center;
+  }
+  .tit {
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+  }
+  .ourServicesSection {
+    margin-bottom: 20px;
+    width: 100%;
+    margin-top: 0;
+  }
+  .customH1 {
+    font-size: 20px;
+    color: #2c005e;
+  }
+  .ourServicesTextContainer {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .firstImageDiv img {
+    display: none;
+  }
+  .firstImageDiv {
+    background-color: rgb(241, 235, 250);
+    margin-bottom: 10px;
+    padding: 0;
+  }
+
+  .get {
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .pp {
+    font-size: 12px;
+  }
+  .secondImageDiv img {
+    display: none;
+  }
+  .secondImageDiv {
+    background-color: rgb(241, 235, 250);
+    margin-bottom: 10px;
+    padding: 0;
+  }
+
+  .stretch {
+    width: 100%;
+    padding: 0;
+  }
+  .investmentTit {
+    color: white;
+    font-size: 14px;
+    text-align: center;
+  }
+  .investmentDesc {
+    color: white;
+    font-weight: 300;
+    text-align: center;
+    font-size: 12px;
+  }
+  .investmentPlanText {
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    font-size: 12px;
+  }
+  .investmentContainer {
+    background-color: #000000;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .subscriptionsParent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 50px;
+    align-items: center;
+  }
+  .sub1 {
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+    height: 460px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .planHeadText {
+    text-align: center;
+    font-weight: 900;
+    font-size: 18px;
+  }
+  .pricing p {
+    font-size: 10px;
+  }
+  .icons {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+
+  .investButton {
+    border-radius: 10px;
+    background-color: #1d75e8;
+    color: white;
+    font-size: 8px;
+    height: 40px;
+    text-align: center;
+    position: absolute;
+    right: 30px;
+  }
+
+  .icons i {
+    margin-bottom: 20px;
+    font-size: 12px;
+  }
+  .iconAndPrising {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    justify-content: center;
+  }
+  #first {
+    height: 400px;
+  }
+  header .nav a {
+    text-decoration: none;
+    font-weight: 900;
+    color: #ffffff;
+    font-size: 10px;
+  }
+  header li {
+    color: white;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .menuItems {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    position: absolute;
+    right: 0px;
+    z-index: 2;
+    top: 30px;
+    background-color: #5f5f5f;
+    width: 70%;
+    border-radius: 0 0 10px 10px;
+    height: 250px;
+  }
+  .logoContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    position: relative;
+  }
+  .logoContainer i {
+    display: block;
+    color: white;
+    position: absolute;
+    right: 0px;
+  }
+  #menuList {
+    overflow: hidden;
+    transition: 0.5s;
+  }
+  #headerButtons {
+    background-color: #009da8;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 8px;
+    font-weight: 700;
+  }
+
+  .profAndSign {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 10px;
+  }
+  .termsSection li {
+    font-size: 12px;
+  }
+  .termsSection {
+    padding: 5px;
+  }
+  .termsSection h1 {
+    font-size: 14px;
+  }
+  .majorWithdrawConatiner {
+    background-color: #ffffff;
+    width: 100%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  .avail {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .actualBalance {
+    font-size: 8px;
+    text-align: center;
+    margin-left: 8px;
+  }
+  .wihdrawContainer input {
+    height: 30px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 0 20px 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 10px;
+  }
+  .desc {
+    font-size: 8px;
+    font-weight: 500;
+    color: gray;
+    text-align: center;
+  }
+  .depositSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 0 10px 0;
+  }
+  #greenButton {
+    background-color: #00801c;
+    width: 100%;
+    margin-top: 0;
+    font-size: 8px;
+    height: 30px;
+  }
+  .topElementsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .mpesa {
+    background-color: #bebebe;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    padding: 20px;
+  }
+  .mpesa input {
+    font-size: 10px;
+  }
+  .headerDivMain {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 10px;
+  }
+  .payContainer {
+    background-color: #ffffff;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px 40px 20px;
+  }
+  .sefferCont input {
+    height: 30px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    margin-top: 0;
+    padding-left: 10px;
+  }
+  .payContainer img {
+    height: 50px;
+    width: 50px;
+  }
+  .payWith {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+  /* .depositButton {
+    height: 40px;
+    background-color: #1d75e8;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 10px;
+  } */
+
+  .popUpWindow {
+    background-color: #bebebe;
+    height: 300px;
+    width: 100px;
+    border-radius: 20px;
+    padding: 40px;
+    display: none;
+    position: absolute;
+    flex-direction: column;
+  }
+  .request {
+    font-size: 10px;
+    text-align: center;
+  }
+  .address {
+    font-size: 8px;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  .note {
+    font-size: 8px;
+    bottom: 20px;
+    color: gray;
+    text-align: center;
+  }
+  header a:hover {
+    color: #cccccc;
+    font-weight: bold;
+  }
+  .hellowBih {
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .accountDetailsContainer {
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    padding: 10px 20px 0 10px;
+    height: 200px;
+  }
+  .grayText p {
+    color: gray;
+    font-size: 8px;
+  }
+  .balance {
+    font-size: 8px;
+  }
+  .attributes {
+    margin-left: 8px;
+  }
+  .attributes p {
+    font-size: 8px;
+  }
+  #currento {
+    font-size: 8px;
+  }
+  .balanceContainer h1 {
+    font-size: 8px;
+  }
+  .logoutAndEditContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 10px;
+  }
+  .profileActionsButton {
+    background-color: #686868;
+    color: rgb(0, 0, 0);
+    font-size: 8px;
+    width: 80px;
+    height: 30px;
+    border-radius: 10px;
+    margin-top: 40;
+  }
+  .notButtons {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 20px;
+  }
+
+  .notButtons button {
+    margin: 20px;
+  }
 }

@@ -33,16 +33,16 @@
 
             <div class="logoContainer">
                 <a class="logo"><img src= {% static 'assets/logo.png' %} alt="logo"></a>
-                
+                <i class="fas fa-bars" onclick="toggleMenu()"></i>
             </div>
 
 
-            <div class="menuItems">
+            <div class="menuItems" id="menuList">
               <div>
                 <nav>
                     <ul class="nav">
                         <li class="current"><a href="/">Home</a></li>
-                        <li ><a href="/terms">Terms</a></li>
+                        <li><a href="/terms">Terms</a></li>
                         <li><a href="/getStarted">Get started</a></li>
                         <li><a href="/deposit">Deposit</a></li>
                         <li><a href="withdraw">Withdraw</a></li>              
@@ -50,7 +50,7 @@
                 </nav>
               </div>
 
-              <div>
+              <div class="profAndSign">
                 <button id="headerButtons" type="submit"><a href="/account">My profile</a></button>
                 <button id="headerButtons" type="submit"><a href="/signout">Sign out</a></button>
               </div>
@@ -66,38 +66,26 @@
       {% comment %} User not authenticated----------------------------------------------- {% endcomment %}
 
       {% else %}
-
-      <div class="notButtons" >
-       
-          <button id="headerButtons" type="submit"><a href="/signup">SignUp</a></button>
-          <button id="headerButtons" type="submit"><a href="/signin">SignIn</a></button>
-     
-      </div>
+      <div class="headerDivMain" >
+          <div class="logoContainer">
+            <a class="logo"><img src= {% static 'assets/logo.png' %} alt="logo"></a>
+            <i class="fas fa-bars" onclick="toggleMenu()"></i>
+          </div>
+      <div class="menuItems" id="menuList">
+          <div class="notButtons" >
+          
+              <button id="headerButtons" type="submit"><a href="/signup">SignUp</a></button>
+              <button id="headerButtons" type="submit"><a href="/signin">SignIn</a></button>
+        
+          </div>
+    </div>
+  </div>
 
       {% endif %}
 
     </header>
 
-    {% comment %} Some message {% endcomment %}
-
-    {% comment %} {% for message in messages %}
-    <div
-      class="alert alert-{{ message.tags }} alert-dismissible fade show"
-      role="alert"
-    >
-      <strong>Message:</strong> {{ message }}
-
-      <button
-        type="button"
-        class="close"
-        data-dismiss="alert"
-        aria-label="Close"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    {% endfor %} {% endcomment %}
-   
+    {% comment %} Some message {% endcomment %}  
 
 
     <!-- Autoscroll links-------------------------------------------------------------- -->
@@ -190,7 +178,7 @@
 
           <div class="divsContainer">
               <img src= {% static 'assets/innovate.png' %}  alt="innovate">
-              <p>STRATEGY</p>
+              <p class="tit">STRATEGY</p>
               <P class="description">Our custom made Arbitrage trading script does 
                all the hard work for you. Our team of professional 
                technical traders and analysts execute open market operations 
@@ -201,7 +189,7 @@
 
           <div class="divsContainer">
               <img src={% static 'assets/lock.png' %} alt="">
-              <p>QUICK WITHDRAWALS</p>
+              <p class="tit">QUICK WITHDRAWALS</p>
               <P class="description">Withdrawal(ROI) will be automatically sent to your
                Bitcoin Wallet at maturity of your Investment Plan.
                ** PRINCIPAL DEPOSIT INCLUDED IN WITHDRAWAL **</P>
@@ -209,7 +197,7 @@
 
           <div class="divsContainer">
               <img src={% static 'assets/images1.png' %} alt="">
-              <p>BLOCKCHAIN TECHNOLOGY</p>
+              <p class="tit">BLOCKCHAIN TECHNOLOGY</p>
               <P class="description">Forex Binary is built on a secure, scalable,  
               and reliable blockchain. By applying blockchain technology,
               Forex Binary is the answer to solving the lack of financing 
@@ -223,27 +211,27 @@
   <!-- Our services------------------------------------------------------------------------------------- -->
 
   <section class="ourServicesSection">
-      <div class="ourServicesParentDiv">
+   
 
           <div class="ourServicesTextContainer">
               <h1 class="customH1">Our services</h1>
-              <!-- <p>Why you should choose us</p> -->
+              
           </div>
 
           <div class="firstImageDiv">
               <img src={% static 'assets/trading1.jpg' %} alt="">
-              <div>
+              <div class="stretch">
                   <div>
-                      <h1>GET STARTED IN MINUTES</h1>
-                      <p>Our systems are extremely sophisticated and 
+                      <h1 class="get">GET STARTED IN MINUTES</h1>
+                      <p class="pp">Our systems are extremely sophisticated and 
                       user friendly which helps all our users to 
                       get started with just a few clicks.
                       </p>
                   </div>
 
                   <div>
-                      <h1>PROFESSIONAL CONNECTIVITY</h1>
-                      <p>Partnering with Market Synergy, corporate accounts
+                      <h1 class="get">PROFESSIONAL CONNECTIVITY</h1>
+                      <p class="pp">Partnering with Market Synergy, corporate accounts
                           and professional traders can take advantage of
                           the fastest trading speeds through institutional-grade
                           connectivity.
@@ -256,10 +244,10 @@
           
           <div class="secondImageDiv">
               <img src={% static 'assets/trading2.jpg' %} alt="">
-              <div>
+              <div class="stretch">
                   <div>
-                      <h1>SECURITY OF FUNDS</h1>
-                      <p>Here at Forex Binary we understand that successful 
+                      <h1 class="get">SECURITY OF FUNDS</h1>
+                      <p class="pp">Here at Forex Binary we understand that successful 
                           traders have to give their full attention to their
                           trading rather than worrying about the safety of 
                           their funds. We have therefore taken additional 
@@ -269,8 +257,8 @@
                   </div>
 
                   <div>
-                      <h1>SATISFIED CUSTOMERS</h1>
-                      <p>Keeping our customers satisfied with our products
+                      <h1 class="get">SATISFIED CUSTOMERS</h1>
+                      <p class="pp">Keeping our customers satisfied with our products
                           and services is non-negotiable for us. In a recent
                           survey, 99% of our customers are more than happy 
                           with the experience at forex binary. We could not
@@ -283,10 +271,10 @@
 
           <div class="firstImageDiv">
               <img src={% static 'assets/TRADING3.jpg' %} alt="">
-              <div>
+              <div class="stretch">
                   <div>
-                      <h1>FINANCIAL ADVISING</h1>
-                      <p>We are the financial experts and thus we impart 
+                      <h1 class="get">FINANCIAL ADVISING</h1>
+                      <p class="pp">We are the financial experts and thus we impart 
                           financial advice and guidance to anyone who is 
                           in need. Our services include Investment Management,
                           Online payment, Digital Loans and many more.
@@ -294,15 +282,14 @@
                   </div>
 
                   <div>
-                      <h1>TRANSPARENCY IN OUR POLICY</h1>
-                      <p>We’re fans of the phrase, “what you see is what
+                      <h1 class="get">TRANSPARENCY IN OUR POLICY</h1>
+                      <p class="pp">We’re fans of the phrase, “what you see is what
                            you get.” No hidden fees, no hidden meanings.
                       </p>
                   </div>
               </div>
           </div>
 
-      </div>
   </section>
 
 
@@ -325,7 +312,7 @@
   
           <div class="subscriptionsParent">
   
-                <div class="sub1">
+                <div class="sub1" id="first">
                   
                     <h1 class="planHeadText">2 Hour plan</h1>
                     <hr class="line" size="0.5" width="10%" color="gray">  
@@ -406,6 +393,19 @@
 
             function goToGetStarted(){
                 window.location="/getStarted"
+            }
+
+            var menuList=document.getElementById("menuList")
+            menuList.style.maxHeight="0px";
+
+            function toggleMenu(){
+              if( menuList.style.maxHeight=="0px"){
+                menuList.style.maxHeight="250px"
+              }
+              else{
+                menuList.style.maxHeight="0px"
+
+              }
             }
 
       </script>
