@@ -884,9 +884,12 @@ footer li {
     top: 30px;
     background-color: #000000;
     width: 100%;
-    border-radius: 0 0 20px 20px;
+    border-radius: 0 0 30px 30px;
     height: 450px;
+    justify-content: center;
+    background-image: url("../assets/suit.png");
   }
+
   .logoContainer {
     display: flex;
     flex-direction: row;
@@ -1122,11 +1125,7 @@ footer li {
     border-radius: 10px;
     margin-top: 40;
   }
-  .notButtons {
-    display: flex;
-    position: absolute;
-    bottom: 20px;
-  }
+
   .wihdrawContainer {
     display: flex;
     align-items: center;
