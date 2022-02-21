@@ -45,8 +45,9 @@ p {
 }
 a {
   font-size: 12px;
-  color: rgb(233, 124, 0);
+  color: rgb(255, 118, 5);
   margin-left: 10px;
+  font-weight: 700;
 }
 
 .signButton {
