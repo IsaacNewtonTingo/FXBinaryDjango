@@ -31,23 +31,23 @@ def signup(request):
 
         if User.objects.filter(username=username):
             messages.error(
-                request, "Username already exist! Please try some other username.")
+                request, "Username already exist. Please try some other username.")
             return redirect('signup')
 
         if User.objects.filter(email=email).exists():
-            messages.error(request, "Email Already Registered!!")
+            messages.error(request, "Email Already Registered")
             return redirect('signup')
 
         if len(username) > 20:
-            messages.error(request, "Username must be under 20 charcters!!")
+            messages.error(request, "Username must be under 20 charcters")
             return redirect('signup')
 
         if pass1 != pass2:
-            messages.error(request, "Passwords didn't matched!!")
+            messages.error(request, "Passwords didn't matched")
             return redirect('signup')
 
         if not username.isalnum():
-            messages.error(request, "Username must be Alpha-Numeric!!")
+            messages.error(request, "Username must be Alpha-Numeric")
             return redirect('signup')
 
         myuser = User.objects.create_user(username, email, pass1, )
@@ -58,12 +58,11 @@ def signup(request):
         myuser.is_active = False
         myuser.save()
         messages.success(
-            request, "Your Account has been created succesfully!! Please check your email to confirm your email address in order to activate your account.")
+            request, "Your Account has been created succesfully.Please check your email to confirm your email address in order to activate your account.")
 
         # Welcome Email
         subject = "Welcome to Fx Binary Login!!"
-        message = "Hello " + myuser.first_name + "!! \n" + \
-            "Welcome to Fx Binary!! \nThank you for visiting our website\n. We have also sent you a confirmation email, please confirm your email address. \n\nThank You\nFx Binary team"
+        message = "Hi there! \n Welcome to Fx Binary! Ready to experience all the benefits of being financially independent? Before you head off to the races, make sure to verify your email address. \nCheck your mail box for a second email with a confirmation link."
         from_email = settings.EMAIL_HOST_USER
         to_list = [myuser.email]
         send_mail(subject, message, from_email, to_list, fail_silently=True)
@@ -104,7 +103,7 @@ def activate(request, uidb64, token):
         # user.profile.signup_confirmation = True
         myuser.save()
         login(request, myuser)
-        messages.success(request, "Your Account has been activated!!")
+        messages.success(request, "Your Account has been activated")
         return redirect('signin')
     else:
         return render(request, 'activation_failed.html')

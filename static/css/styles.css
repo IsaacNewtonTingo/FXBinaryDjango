@@ -82,6 +82,16 @@ a:visited {
   width: 50px;
   height: 50px;
 }
+.logoAndBalance {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.logoAndBalance h4 {
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+}
 
 .menuItems {
   display: flex;

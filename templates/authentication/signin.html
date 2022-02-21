@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'css/form.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}" />
     <title>Sign Up</title>
   </head>
 
@@ -19,23 +19,12 @@
 
 
     <secton>
-          <div class= "container">
+          <div  class= "container">
 
             {% for message in messages %}
-                    <div
-                      class="alert alert-{{ message.tags }} alert-dismissible fade show"
-                      role="alert"
-                    >
-                      <strong>Alert !!! </strong> {{ message }}
-                      <button
-                        type="button"
-                        class="close"
-                        data-dismiss="alert"
-                        aria-label="Close"
-                      >
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
+      
+            <h3 id="status" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
+          
             {% endfor %}
 
 
@@ -67,8 +56,8 @@
                     placeholder="Password"
                     required
                   />
-                
-                 
+
+              
                
                 <button type="submit" class="signButton ">Login</button>
                 <div class="already">
