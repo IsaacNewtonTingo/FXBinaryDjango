@@ -826,11 +826,11 @@ footer li {
     margin-top: 50px;
   }
   .sub1 {
-    padding: 30px;
+    padding: 10px;
     background-color: white;
     border-radius: 20px;
-    height: 500px;
-    width: 380px;
+    height: 400px;
+    width: 200px;
     position: relative;
   }
   .icons {
@@ -841,7 +841,7 @@ footer li {
   }
   .icons p {
     font-weight: 500;
-    font-size: 12px;
+    font-size: 8px;
   }
 
   .planHeadText {
