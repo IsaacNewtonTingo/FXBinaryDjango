@@ -27,13 +27,13 @@
     <header>
       {% if user.is_authenticated %}
 
-      <div class="headerDivMain">
-        <div class="logoContainer">
-          <a class="logo"
-            ><img src= {% static 'assets/logo.png' %} alt="logo"></a
-          >
-          <i class="fas fa-bars" onclick="toggleMenu()"></i>
+      <div class="logoContainer">
+        <div class="logoAndBalance">          
+          <a class="logo"><img src= {% static 'assets/logo.png' %} alt="logo"></a>
+          <h4>Balance: ${{user.last_name}}</h4>
         </div>
+          <i class="fas fa-bars" onclick="toggleMenu()"></i>
+      </div>
 
         <div class="menuItems" id="menuList">
           <div>
@@ -153,7 +153,7 @@
           </div>
 
           <div class="balanceContainer">
-            <p class="actualBalance">{{user.last_name}} BTC</p>
+            <p class="actualBalance">{{user.last_name}} USD</p>
           </div>
         </div>
 

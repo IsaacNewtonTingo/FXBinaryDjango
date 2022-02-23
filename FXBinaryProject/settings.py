@@ -43,6 +43,8 @@ if os.getcwd() == '/app':
     SECURE_PROXY_SSL__HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     SECURE_SSL_REDIRECT = True
     DEBUG = False
+else:
+    DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 

@@ -603,6 +603,15 @@ footer li {
   color: #c94000;
   margin-left: 10px;
 }
+.depositButton {
+  height: 40px;
+  background-color: #1d75e8;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 10px;
+  width: 200px;
+}
 
 .depositButtonBii {
   width: 100%;
