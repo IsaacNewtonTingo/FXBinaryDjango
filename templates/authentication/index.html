@@ -69,10 +69,10 @@
       {% comment %} User not authenticated----------------------------------------------- {% endcomment %}
 
       {% else %}
-      <div class="headerDivMain" >
+    <div class="headerDivMain" >
           <div class="logoContainer">
             <a class="logo"><img src= {% static 'assets/logo.png' %} alt="logo"></a>
-            <i class="fas fa-bars" onclick="toggleMenu()"></i>
+            <i class="fas fa-bars" onclick="goToSignUp()"></i>
           </div>
       <div class="menuItems" id="menuList">
 
@@ -82,7 +82,7 @@
               <button class="rihrih" id="headerButtons" type="submit"><a href="/signin">SignIn</a></button>
           </div>
           
-    </div>
+      </div>
   </div>
 
       {% endif %}
@@ -153,8 +153,8 @@
 
   <section class="aboutUs">
     {% csrf_token %}
-      <h1 class="customH1">About Forex Binary  </h1>
-      <p>Forex Binary is the next-gen Trading solutions company that
+      <h1 class="customH1">About Az Binary  </h1>
+      <p>Az Binary is the next-gen Trading solutions company that
           has financial experts at the core who are focused on 
           creating sustainable and profitable Bitcoin and Forex
           investment opportunities.  Our knowledge team and market
@@ -412,8 +412,6 @@
                          
       </section>
 
-      {% if user.is_authenticated %}
-
   
       <script>
           function goToDeposit() {
@@ -422,6 +420,10 @@
 
             function goToGetStarted(){
                 window.location="/getStarted"
+            }
+
+            function goToSignUp(){
+              window.location="/signup"
             }
 
             var menuList=document.getElementById("menuList")
@@ -440,31 +442,6 @@
             }           
       </script>
 
-      {% else %}
-      <script>
-        function goToDeposit() {
-        window.location = "/deposit";
-            }
-
-          function goToGetStarted(){
-              window.location="/getStarted"
-          }
-
-          var menuList=document.getElementById("menuList")
-          menuList.style.maxHeight="0px";
-
-          function toggleMenu(){
-            if( menuList.style.maxHeight=="0px"){
-              
-              menuList.style.maxHeight="100px"           
-            }           
-            else{
-              menuList.style.maxHeight="0px"
-            }
-          }           
-    </script>
-    {% endif %}
-    
 
   </body>
 </html>
