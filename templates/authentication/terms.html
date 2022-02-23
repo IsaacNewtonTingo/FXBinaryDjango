@@ -65,7 +65,7 @@
           <a class="logo"
             ><img src= {% static 'assets/logo.png' %} alt="logo"></a
           >
-          <i class="fas fa-bars" onclick="toggleMenu()"></i>
+          <i class="fas fa-bars" onclick="goToSignUp()"></i>
         </div>
         <div class="menuItems" id="menuList">
           <div class="notButtons">
@@ -363,6 +363,10 @@
 
       function goToGetStarted() {
         window.location = "/getStarted";
+      }
+
+      function goToSignUp() {
+        window.location = "/signup";
       }
 
       var menuList = document.getElementById("menuList");

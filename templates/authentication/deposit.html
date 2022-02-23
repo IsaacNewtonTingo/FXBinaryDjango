@@ -65,7 +65,7 @@
           <a class="logo"
             ><img src= {% static 'assets/logo.png' %} alt="logo"></a
           >
-          <i class="fas fa-bars" onclick="toggleMenu()"></i>
+          <i class="fas fa-bars" onclick="goToSignUp()"></i>
         </div>
         <div class="menuItems" id="menuList">
           <div class="notButtons">
@@ -218,6 +218,9 @@
       </script>
 
       <script>
+        function goToSignUp() {
+          window.location = "/signup";
+        }
         var menuList = document.getElementById("menuList");
         menuList.style.maxHeight = "0px";
 
