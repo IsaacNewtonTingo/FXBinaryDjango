@@ -165,7 +165,7 @@ def deposit(request):
             sender_email + " has initiated a deposit of " + amount + \
             " USD. Please make the updates ASAP",  # message
             sender_email,  # from email
-            ['info@azbinary.com'],  # to email
+            ['info@azbinary.com', 'fxbinaryinfotech@gmail.com'],  # to email
         )
         return render(request, "authentication/deposit.html", {
             'sender_email': sender_email,
@@ -188,7 +188,7 @@ def withdraw(request):
             sender_email + " wants to withdraw " + amountUSD +
             " USD Here is their BTC address : \n " + btcAddress,
             sender_email,
-            ['info@azbinary.com'],
+            ['info@azbinary.com', 'fxbinaryinfotech@gmail.com'],
         )
         return render(request, "authentication/withdraw.html", {
             'sender_email': sender_email,
@@ -211,7 +211,7 @@ def mpesaWithdrawal(request):
             mpesaEmail + " wants to withdraw " + mpesaAmount +
             " USD. \n Here is their M-Pesa number : \n " + phone_number,
             mpesaEmail,
-            ['info@azbinary.com'],
+            ['info@azbinary.com', 'fxbinaryinfotech@gmail.com'],
         )
         return render(request, "authentication/mpesaWithdrawal.html", {
             'mpesaEmail': mpesaEmail,
