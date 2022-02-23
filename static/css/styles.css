@@ -12,9 +12,7 @@ body {
 .logoContainer i {
   display: none;
 }
-.suit {
-  display: none;
-}
+
 .notButtons {
   display: flex;
   flex-direction: row;
@@ -882,7 +880,7 @@ footer li {
     margin-bottom: 40px;
   }
   .menuItems {
-    display: flex;
+    /* display: flex;
     align-items: center;
     flex-direction: column;
     margin-top: 50px;
@@ -893,8 +891,7 @@ footer li {
     background-color: #000000;
     width: 100%;
     border-radius: 0 0 30px 30px;
-    height: 450px;
-    justify-content: center;
+    justify-content: center; */
   }
 
   .logoContainer {
@@ -914,6 +911,7 @@ footer li {
     overflow: hidden;
     transition: 0.5s;
   }
+
   #headerButtons {
     background-color: #009da8;
     padding: 10px;
@@ -1156,9 +1154,7 @@ footer li {
   .notButtons button {
     margin-right: 20px;
   }
-  .suit {
-    display: flex;
-  }
+
   .please {
     margin: 20px;
   }

@@ -75,7 +75,7 @@
             <i class="fas fa-bars" onclick="toggleMenu()"></i>
           </div>
       <div class="menuItems" id="menuList">
-      <img class="suit" src= {% static 'assets/suit.png' %} alt="">
+
           <div class="notButtons" >
               
               <button id="headerButtons" type="submit"><a href="/signup">SignUp</a></button>
@@ -428,7 +428,11 @@
 
             function toggleMenu(){
               if( menuList.style.maxHeight=="0px"){
+                {% if user.is_authenticated %}
                 menuList.style.maxHeight="450px"
+                {% else %}
+                menuList.style.maxHeight="100px"
+                {% endif %}
               }
               else{
                 menuList.style.maxHeight="0px"
