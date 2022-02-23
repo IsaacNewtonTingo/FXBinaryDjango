@@ -412,6 +412,7 @@
                          
       </section>
 
+      {% if user.is_authenticated %}
 
   
       <script>
@@ -428,21 +429,41 @@
 
             function toggleMenu(){
               if( menuList.style.maxHeight=="0px"){
-                {% if user.is_authenticated %}
-                menuList.style.maxHeight="450px"
-                {% else %}
-                menuList.style.maxHeight="100px"
-                {% endif %}
+                
+                menuList.style.maxHeight="450px"           
               }
               
               else{
                 menuList.style.maxHeight="0px"
 
               }
-            }
-            
-
+            }           
       </script>
+
+      {% else %}
+      <script>
+        function goToDeposit() {
+        window.location = "/deposit";
+            }
+
+          function goToGetStarted(){
+              window.location="/getStarted"
+          }
+
+          var menuList=document.getElementById("menuList")
+          menuList.style.maxHeight="0px";
+
+          function toggleMenu(){
+            if( menuList.style.maxHeight=="0px"){
+              
+              menuList.style.maxHeight="100px"           
+            }           
+            else{
+              menuList.style.maxHeight="0px"
+            }
+          }           
+    </script>
+    {% endif %}
     
 
   </body>
