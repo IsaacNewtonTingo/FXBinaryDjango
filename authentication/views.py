@@ -61,15 +61,15 @@ def signup(request):
             request, "Your Account has been created succesfully.Please check your email to confirm your email address in order to activate your account.")
 
         # Welcome Email
-        subject = "Welcome to Fx Binary Login!!"
-        message = "Hi there! \n Welcome to Fx Binary! Ready to experience all the benefits of being financially independent? Before you head off to the races, make sure to verify your email address. \nCheck your mail box for a second email with a confirmation link."
+        subject = "Welcome to Az Binary"
+        message = "Hi there! \n Welcome to Az Binary! Ready to experience all the benefits of being financially independent? Before you head off to the races, make sure to verify your email address. \nCheck your mail box for a second email with a confirmation link."
         from_email = settings.EMAIL_HOST_USER
         to_list = [myuser.email]
         send_mail(subject, message, from_email, to_list, fail_silently=True)
 
         # Email Address Confirmation Email
         current_site = get_current_site(request)
-        email_subject = "Confirm your Email @ Fx Binary Login!!"
+        email_subject = "Confirm your Email @ Az Binary Login!!"
         message2 = render_to_string('email_confirmation.html', {
 
             'name': myuser.first_name,
@@ -165,7 +165,7 @@ def deposit(request):
             sender_email + " has initiated a deposit of " + amount + \
             " USD. Please make the updates ASAP",  # message
             sender_email,  # from email
-            ['info@azbinary.com', 'fxbinaryinfotech@gmail.com'],  # to email
+            ['info@azbinary.com', 'azbinaryinfotech@gmail.com'],  # to email
         )
         return render(request, "authentication/deposit.html", {
             'sender_email': sender_email,
@@ -188,7 +188,7 @@ def withdraw(request):
             sender_email + " wants to withdraw " + amountUSD +
             " USD Here is their BTC address : \n " + btcAddress,
             sender_email,
-            ['info@azbinary.com', 'fxbinaryinfotech@gmail.com'],
+            ['info@azbinary.com', 'azbinaryinfotech@gmail.com'],
         )
         return render(request, "authentication/withdraw.html", {
             'sender_email': sender_email,
@@ -211,7 +211,7 @@ def mpesaWithdrawal(request):
             mpesaEmail + " wants to withdraw " + mpesaAmount +
             " USD. \n Here is their M-Pesa number : \n " + phone_number,
             mpesaEmail,
-            ['info@azbinary.com', 'fxbinaryinfotech@gmail.com'],
+            ['info@azbinary.com', 'azbinaryinfotech@gmail.com'],
         )
         return render(request, "authentication/mpesaWithdrawal.html", {
             'mpesaEmail': mpesaEmail,
