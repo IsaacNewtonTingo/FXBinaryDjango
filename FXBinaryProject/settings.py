@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
+from distutils.debug import DEBUG
 import django_heroku
 import dj_database_url
 from decouple import config
@@ -38,7 +39,10 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = config('DEBUG', cast=bool)
+if os.getcwd() == '/app':
+    SECURE_PROXY_SSL__HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SECURE_SSL_REDIRECT = True
+    DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
