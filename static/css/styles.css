@@ -880,7 +880,7 @@ footer li {
     margin-bottom: 40px;
   }
   .menuItems {
-    /* display: flex;
+    display: flex;
     align-items: center;
     flex-direction: column;
     margin-top: 50px;
@@ -891,7 +891,7 @@ footer li {
     background-color: #000000;
     width: 100%;
     border-radius: 0 0 30px 30px;
-    justify-content: center; */
+    justify-content: center;
   }
 
   .logoContainer {
